@@ -21,8 +21,8 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerController.instance.transform;
-
+        //target = PlayerController.instance.transform;
+        target = FindObjectOfType<PlayerController>().transform;
         //main.orthographic size is built into Unity to get size of camera
         halfHeight = Camera.main.orthographicSize;
         //camera.main.aspect is our aspect ratio (Which in unity I set to 16:9)
@@ -31,9 +31,10 @@ public class CameraController : MonoBehaviour
         //Getting the max and min limits for camera (so it does not pan over into the void)
         //By adding  halfheight/halfwidth we move the camera up accordingly so we do not see the void
         bottomLeftLimit = theMap.localBounds.min + new Vector3(halfWidth, halfHeight, 0);
-        topRightLimit = theMap.localBounds.max + new Vector3(-halfWidth, -halfHeight, 0); 
+        topRightLimit = theMap.localBounds.max + new Vector3(-halfWidth, -halfHeight, 0);
 
-
+        //Setting the bounds to the maps local bounds
+        PlayerController.instance.SetBounds(theMap.localBounds.min, theMap.localBounds.max);
     }
 
     // LateUpdate is called once per frame after Update()

@@ -11,6 +11,11 @@ public class PlayerController : MonoBehaviour
 
     public static PlayerController instance;
     public string areaTransitionName;
+
+    private Vector3 bottomLeftLimit;
+    private Vector3 topRightLimit;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +26,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //removing any duplicates
-            Destroy(gameObject);
+            if (instance != this)
+            {
+                //removing any duplicates
+                Destroy(gameObject);
+            }
         }
         //If I don't have this when I switch scenes I lose the 
         //Game object (In this case the player)
@@ -43,5 +51,22 @@ public class PlayerController : MonoBehaviour
             myAnim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
             myAnim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
         }
+
+        //Just liked I used this to keep the camera inside the map bounds
+        //I am using the same line of code for the player to keep him in bounds
+        //Clamp: Takes a value and clamps it between two points 
+        //(in this case bottomleft and topright)
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, bottomLeftLimit.x, topRightLimit.x), Mathf.Clamp(transform.position.y, bottomLeftLimit.y, topRightLimit.y), transform.position.z);
     }
+
+    //Setter for our bounds
+    public void SetBounds(Vector3 botLeft, Vector3 topRight)
+    {
+        //Adding the new vector so the player model does not get clipped off when reaching an end
+        bottomLeftLimit = botLeft + new Vector3(.5f, 1f, 0f);
+        topRightLimit = topRight + new Vector3(-.5f, -1f, 0f);
+    }
+
+
+
 }
