@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 topRightLimit;
 
 
+    public bool canMove = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,16 +42,29 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * moveSpeed;
+        if (canMove)
+        {
+            rigidBody.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * moveSpeed;
+            
+        }
+        else
+        {
+            rigidBody.velocity = Vector2.zero;
+        }
+
         myAnim.SetFloat("moveX", rigidBody.velocity.x);
         myAnim.SetFloat("moveY", rigidBody.velocity.y);
 
         //Checking if horizontal/verticla axis is equal to 1
-        if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
-            //Player is pressing in that direction
-            myAnim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
-            myAnim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
+            if (canMove)
+            {
+                //Player is pressing in that direction
+                myAnim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
+                myAnim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
+            }
+           
         }
 
         //Just liked I used this to keep the camera inside the map bounds
