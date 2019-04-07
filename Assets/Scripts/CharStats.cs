@@ -16,6 +16,7 @@ public class CharStats : MonoBehaviour
     public int maxHP = 100;
     public int currentMP;
     public int maxMP = 30;
+    public int[] mpLvlBonus = new int[100];
     public int strength;
     public int defence;
     public int wpnPwr;
@@ -42,17 +43,50 @@ public class CharStats : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            AddExp(500);
+            AddExp(1000);
         }
     }
     public void AddExp(int expToAdd)
     {
         currentEXP += expToAdd;
-        if (currentEXP > expToNextLevel[playerLevel])
+        if (playerLevel < maxLevel)
         {
-            currentEXP -= expToNextLevel[playerLevel];
-            playerLevel++;
+            //then we can do level up stuff
+            if (currentEXP > expToNextLevel[playerLevel] && playerLevel < maxLevel)
+            {
+                currentEXP -= expToNextLevel[playerLevel];
+                playerLevel++;
+
+
+                //Determine whether to add to str/def based on odd or even
+                //if even number we add str, odd defence
+
+                if (playerLevel % 2 == 0)
+                {
+                    strength++;
+                }
+                else
+                {
+                    defence++;
+                }
+
+
+                //update HP 
+                maxHP = Mathf.FloorToInt(maxHP * 1.05f);
+                currentHP = maxHP;
+
+                //update Mana points
+                maxMP = maxMP + mpLvlBonus[playerLevel];
+                currentMP = maxMP;
+                
+            }
         }
+
+        if (playerLevel >= maxLevel)
+        {
+            currentEXP = 0;
+        }
+
+
     }
-    
 }
