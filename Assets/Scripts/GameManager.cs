@@ -8,6 +8,13 @@ public class GameManager : MonoBehaviour
     public CharStats[] playerStats;
 
     public bool gameMenuOpen, dialogActive, fadingBetweenAreas;
+
+    //For storing and collection of items and amt.
+    public string[] itemsHeld;
+    public int[] numberOfItems;
+    //Find item in reference items list and display image 
+    public Item[] referenceItems;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +33,45 @@ public class GameManager : MonoBehaviour
         else
         {
             PlayerController.instance.canMove = true;
+        }
+    }
+
+    public Item GetItemDetails(string itemToGet)
+    {
+        for (int i = 0; i < referenceItems.Length; i++)
+        {
+            if (referenceItems[i].itemName ==itemToGet)
+            {
+                return referenceItems[i];
+            }
+        }
+        return null;
+    }
+
+    public void SortItems()
+    {
+        bool itemAfterSpace = true;
+
+        while (itemAfterSpace)
+        {
+
+            itemAfterSpace = false;
+            for (int i = 0; i < itemsHeld.Length - 1; i++)
+            {
+                if (itemsHeld[i] == "")
+                {
+                    itemsHeld[i] = itemsHeld[i + 1];
+                    itemsHeld[i + 1] = "";
+
+                    numberOfItems[i] = numberOfItems[i + 1];
+                    numberOfItems[i + 1] = 0;
+
+                    if (itemsHeld[i] != "")
+                    {
+                        itemAfterSpace = true;
+                    }
+                }
+            }
         }
     }
 }

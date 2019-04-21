@@ -23,7 +23,10 @@ public class GameMenu : MonoBehaviour
     //for updating stats in stats window
     public Text statusName, statusHP, statusMP, statusStr, statusDef, statusWpnEqpd, statusWpnPwr, statusArmrEqp, statusArmrPwr, statusExp;
     public Image statusImage;
-    
+
+    //Our item buttons to show in the inventory
+    public ItemButton[] itemButtons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -140,5 +143,29 @@ public class GameMenu : MonoBehaviour
             playerStats[selected].currentEXP).ToString();
 
         statusImage.sprite = playerStats[selected].charImage;
+    }
+
+
+    public void ShowItems()
+    {
+        GameManager.instance.SortItems();
+        for (int i = 0; i < itemButtons.Length;i++)
+        {
+            itemButtons[i].buttonValue = i;
+            //If there's an item in that position
+            if (GameManager.instance.itemsHeld[i] != "")
+            {
+                itemButtons[i].ButtonImage.gameObject.SetActive(true);
+                //Calling item function in gamemanager, returning an item, going into item script and getting the sprite of the item
+                itemButtons[i].ButtonImage.sprite = GameManager.instance.GetItemDetails(GameManager.instance.itemsHeld[i]).itemSprite;
+                //Setting amt of items
+                itemButtons[i].amountText.text = GameManager.instance.numberOfItems[i].ToString();
+            }
+            else
+            {
+                itemButtons[i].ButtonImage.gameObject.SetActive(false);
+                itemButtons[i].amountText.text = "";
+            }
+        }
     }
 }
