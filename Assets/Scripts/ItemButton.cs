@@ -16,12 +16,22 @@ public class ItemButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void Press()
+    {
+        if (GameManager.instance.itemsHeld[buttonValue] != "")
+        {
+            //If the button is not blank then we clal a function from GameMenu to set the item active and update
+            //item name/description in the inventory
+            GameMenu.instance.SelectItem(GameManager.instance.GetItemDetails(GameManager.instance.itemsHeld[buttonValue]));
+
+        }
     }
 }
