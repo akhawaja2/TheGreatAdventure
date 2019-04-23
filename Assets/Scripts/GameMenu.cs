@@ -37,6 +37,8 @@ public class GameMenu : MonoBehaviour
     //For using items on players
     public GameObject itemCharChoiceMenu;
     public Text[] itemCharChoiceNames;
+
+    public Text goldText;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,8 @@ public class GameMenu : MonoBehaviour
                 charStatHolder[i].SetActive(false);
             }
         }
+
+        goldText.text = GameManager.instance.currentGold.ToString() + "g";
     }
 
     public void ToggleWindow(int windowNumber)
