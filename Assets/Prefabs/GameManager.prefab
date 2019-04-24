@@ -114,9 +114,56 @@ MonoBehaviour:
   gameMenuOpen: 0
   dialogActive: 0
   fadingBetweenAreas: 0
-  itemsHeld: []
-  numberOfItems: 
-  referenceItems: []
+  shopActive: 0
+  itemsHeld:
+  - 
+  - 
+  - 
+  - Health Potion
+  - 
+  - 
+  - 
+  - Iron Armor
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Leather Armor
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  numberOfItems: 00000000000000000000000005000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  referenceItems:
+  - {fileID: 5898219423697948294, guid: 2c0cd22d298bc4d41a9b5164b5913a19, type: 3}
+  - {fileID: 1502653947240911827, guid: 1ec75a879d36d1446aee2485d81231c8, type: 3}
+  - {fileID: 2305573867043506684, guid: a17ac7b52a720fe45a743df0ac4cd4e5, type: 3}
+  - {fileID: 1368382512516547619, guid: e3629927d70dfc048a453f7f0b7948e2, type: 3}
+  - {fileID: 170831840316201390, guid: 7c3f37846cb971b45acd0263d6458b91, type: 3}
+  - {fileID: 6620692471329563931, guid: 75734992cbc925d43a855529d9c02ffe, type: 3}
   currentGold: 100
 --- !u!1 &6779736513582474493
 GameObject:
@@ -161,13 +208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc6bbbbf676d8d4ba9eccaaa5b52d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: 
+  charName: Tom
   playerLevel: 1
   currentEXP: 0
   expToNextLevel: 
   maxLevel: 10
   baseEXP: 1000
-  currentHP: 0
+  currentHP: 100
   maxHP: 100
   currentMP: 0
   maxMP: 30
@@ -228,7 +275,7 @@ MonoBehaviour:
   expToNextLevel: 
   maxLevel: 10
   baseEXP: 1000
-  currentHP: 0
+  currentHP: 45
   maxHP: 100
   currentMP: 0
   maxMP: 25
