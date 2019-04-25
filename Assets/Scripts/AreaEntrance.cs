@@ -10,6 +10,7 @@ public class AreaEntrance : MonoBehaviour
     {
         if ( transitionName == PlayerController.instance.areaTransitionName)
         {
+            Debug.Log("Hey I entered the areaEntrance start function");
             PlayerController.instance.transform.position = transform.position;
         }
 
