@@ -43,13 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc6bbbbf676d8d4ba9eccaaa5b52d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charName: Woody
+  charName: Ralph
   playerLevel: 3
   currentEXP: 543
   expToNextLevel: 
   maxLevel: 10
   baseEXP: 1000
-  currentHP: 0
+  currentHP: 55
   maxHP: 100
   currentMP: 0
   maxMP: 25
@@ -116,6 +116,7 @@ MonoBehaviour:
   dialogActive: 0
   fadingBetweenAreas: 0
   shopActive: 0
+  battleActive: 0
   itemsHeld:
   - 
   - 

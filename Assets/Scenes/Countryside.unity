@@ -6815,7 +6815,7 @@ PrefabInstance:
     - target: {fileID: 8884183194628511107, guid: e633c234749b3f4428d5a592ffee3130,
         type: 3}
       propertyPath: m_Name
-      value: Area Exit
+      value: Area Exit - Town
       objectReference: {fileID: 0}
     - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
         type: 3}
@@ -8146,8 +8146,95 @@ Transform:
   - {fileID: 534192605}
   - {fileID: 1248424090}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1793954894
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8884183194628511107, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_Name
+      value: Area Exit - Cave
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.35977346
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511106, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511164, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: areaToLoad
+      value: Cave
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884183194628511164, guid: e633c234749b3f4428d5a592ffee3130,
+        type: 3}
+      propertyPath: areaTransitionName
+      value: Countryside-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803513178, guid: e633c234749b3f4428d5a592ffee3130, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803513178, guid: e633c234749b3f4428d5a592ffee3130, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.91
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e633c234749b3f4428d5a592ffee3130, type: 3}
 --- !u!1001 &1846979764
 PrefabInstance:
   m_ObjectHideFlags: 0

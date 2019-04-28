@@ -35,15 +35,16 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayBGM(int musicToPlay)
     {
+ 
         if (!bgm[musicToPlay].isPlaying)
         {
 
         
-        StopMusic();
-        if (musicToPlay < bgm.Length)
-        {
-            bgm[musicToPlay].Play();
-        }
+            StopMusic();
+            if (musicToPlay < bgm.Length)
+            {
+                bgm[musicToPlay].Play();
+            }
         }
 
     }
