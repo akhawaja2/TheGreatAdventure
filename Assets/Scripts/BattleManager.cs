@@ -38,6 +38,11 @@ public class BattleManager : MonoBehaviour
     public GameObject targetMenu;
     public BattleTargetButton[] targetButtons;
 
+    public GameObject magicMenu;
+
+    public BattleMagicSelect[] magicButtons;
+
+    public BattleNotification battleNotice;
     // Start is called before the first frame update
     void Start()
     {
@@ -363,4 +368,35 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+    public void OpenMagicMenu()
+    {
+        Debug.Log("Entered magic menu");
+        magicMenu.SetActive(true);
+        for (int i = 0; i < magicButtons.Length; i++)
+        {
+            if (activeBattlers[currentTurn].movesAvailable.Length > i)
+            {
+                magicButtons[i].gameObject.SetActive(true);
+
+                magicButtons[i].spellName = activeBattlers[currentTurn].movesAvailable[i];
+
+                magicButtons[i].nameText.text = magicButtons[i].spellName;
+                for (int j = 0; j < movesList.Length; j++)
+                {
+                    if (movesList[j].moveName == magicButtons[i].spellName)
+                    {
+                        magicButtons[i].spellCost = movesList[j].moveCost;
+                        magicButtons[i].costText.text = magicButtons[i].spellCost.ToString();
+                    }
+                }
+            }
+            else
+            {
+                magicButtons[i].gameObject.SetActive(false);
+            }
+        }
+    }
 }
+
+
