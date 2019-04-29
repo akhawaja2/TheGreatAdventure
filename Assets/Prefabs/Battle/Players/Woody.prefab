@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3431580956227633771}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.0526686, y: -7.73, z: 0.46289062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -99,10 +99,13 @@ MonoBehaviour:
   charName: Woody
   currentHP: 100
   maxHP: 100
-  currentMP: 0
-  maxMP: 0
+  currentMP: 30
+  maxMP: 50
   strength: 0
   defence: 0
   wpnPower: 0
   armrPower: 0
   hasDied: 0
+  theSprite: {fileID: 3431580956227633769}
+  deadSprite: {fileID: 21300046, guid: e0ddba6d3fcf21f49949fcc95c849aac, type: 3}
+  aliveSprite: {fileID: 21300024, guid: e0ddba6d3fcf21f49949fcc95c849aac, type: 3}

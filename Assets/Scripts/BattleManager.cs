@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class BattleManager : MonoBehaviour
 {
     public static BattleManager instance;
@@ -45,12 +46,18 @@ public class BattleManager : MonoBehaviour
     public BattleNotification battleNotice;
 
     public int chanceToFlee = 35;
+    private bool fleeing;
 
     public GameObject itemMenu;
 
     public ItemButton[] itemButtonsToShow;
     public Item activeItemBattle;
     public Text itemNameBattle, itemDescriptionBattle, useButtonTextBattle;
+
+    public string gameOverScene;
+
+    public int rewardXP;
+    public string[] rewardItems;
     // Start is called before the first frame update
     void Start()
     {
@@ -177,6 +184,15 @@ public class BattleManager : MonoBehaviour
             if (activeBattlers[i].currentHP == 0)
             {
                 //handle dead battler
+                if (activeBattlers[i].isPlayer)
+                {
+                    //Changing alive sprite to dead sprite
+                    activeBattlers[i].theSprite.sprite = activeBattlers[i].deadSprite;
+                }
+                else
+                {
+                    activeBattlers[i].EnemyFade();
+                }
             }
             else
             {
@@ -184,6 +200,8 @@ public class BattleManager : MonoBehaviour
                 if (activeBattlers[i].isPlayer)
                 {
                     allPlayersDead = false;
+                    //Since it isn't dead let's keep the alive sprite
+                    activeBattlers[i].theSprite.sprite = activeBattlers[i].aliveSprite;
                 }
                 else
                 {
@@ -200,17 +218,17 @@ public class BattleManager : MonoBehaviour
                 Debug.Log(allEnemiesDead + " allplayers- " + allPlayersDead);
                 if (allEnemiesDead)
                 {
-                    Debug.Log("VICTORY!");
+                        Debug.Log("VICTORY!");
                     //end battle in victory
+                    StartCoroutine(EndBattleCo());
                 }
                 else
                 {
-                    Debug.Log("DEFEAT!");
-                    //failed battle
+                    StartCoroutine(GameOverCo());
                 }
-                battleScene.SetActive(false);
+                /*battleScene.SetActive(false);
                 GameManager.instance.battleActive = false;
-                battleActive = false;
+                battleActive = false;*/
             }
             else
             {
@@ -363,7 +381,9 @@ public class BattleManager : MonoBehaviour
 
         for (int i = 0; i < targetButtons.Length; i++)
         {
-            if (Enemies.Count > i)
+            //Checking if there is an enemy we can check
+            //AND if it is alive.
+            if (Enemies.Count > i && activeBattlers[Enemies[i]].currentHP > 0)
             {
                 targetButtons[i].gameObject.SetActive(true);
                 targetButtons[i].moveName = moveName;
@@ -410,8 +430,12 @@ public class BattleManager : MonoBehaviour
         int fleeSuccess = Random.Range(0, 100);
         if (fleeSuccess < chanceToFlee)
         {
+            fleeing = true;
+            //End battle
             battleActive = false;
             battleScene.SetActive(false);
+
+            StartCoroutine(EndBattleCo());
         }
         else
         {
@@ -471,6 +495,73 @@ public class BattleManager : MonoBehaviour
         activeItemBattle.UseInBattle(currentTurn);
         itemMenu.SetActive(false);
         NextTurn();
+    }
+
+    public IEnumerator EndBattleCo()
+    {
+        battleActive = false;
+        uiButtonsHolder.SetActive(false);
+        targetMenu.SetActive(false);
+        magicMenu.SetActive(false);
+        itemMenu.SetActive(false);
+
+        //wait half a second so our last enemy fades out
+        yield return new WaitForSeconds(.5f);
+
+        //Fade out screen
+        UIFade.instance.FadeToBlack();
+
+        //Wait for fade out to finish
+        yield return new WaitForSeconds(1.5f);
+
+        //Our battle has ended. anything that's happened in battle should persist (hp/mp potions used)
+        for (int i = 0; i < activeBattlers.Count; i++)
+        {
+            if (activeBattlers[i].isPlayer)
+            {
+                for(int j = 0; j < GameManager.instance.playerStats.Length;j++)
+                {
+                    if (activeBattlers[i].charName == GameManager.instance.playerStats[j].charName)
+                    { 
+                        //Updating the stats
+                        GameManager.instance.playerStats[j].currentHP = activeBattlers[i].currentHP;
+                        GameManager.instance.playerStats[j].currentMP = activeBattlers[i].currentMP;
+                    }
+                }
+
+            }
+            Destroy(activeBattlers[i].gameObject);
+        }
+
+        //Fading to screen and clearing battle data
+        UIFade.instance.FadeFromBlack();
+        battleScene.SetActive(false);
+        activeBattlers.Clear();
+        currentTurn = 0;
+        //GameManager.instance.battleActive = false;
+        if (fleeing)
+        {
+            GameManager.instance.battleActive = false;
+            fleeing = false;
+        }
+        else
+        {
+            BattleReward.instance.OpenRewardsScreen(rewardXP, rewardItems);
+        }
+
+        AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
+    }
+
+    public IEnumerator GameOverCo()
+    {
+        battleActive = false;
+        UIFade.instance.FadeToBlack();
+        //waiting for fade to complete
+        yield return new WaitForSeconds(1.5f);
+        battleScene.SetActive(false);
+        //loading into game over scene
+        SceneManager.LoadScene(gameOverScene);
+
     }
 
 }
