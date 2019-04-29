@@ -43,6 +43,14 @@ public class BattleManager : MonoBehaviour
     public BattleMagicSelect[] magicButtons;
 
     public BattleNotification battleNotice;
+
+    public int chanceToFlee = 35;
+
+    public GameObject itemMenu;
+
+    public ItemButton[] itemButtonsToShow;
+    public Item activeItemBattle;
+    public Text itemNameBattle, itemDescriptionBattle, useButtonTextBattle;
     // Start is called before the first frame update
     void Start()
     {
@@ -371,7 +379,6 @@ public class BattleManager : MonoBehaviour
 
     public void OpenMagicMenu()
     {
-        Debug.Log("Entered magic menu");
         magicMenu.SetActive(true);
         for (int i = 0; i < magicButtons.Length; i++)
         {
@@ -396,6 +403,67 @@ public class BattleManager : MonoBehaviour
                 magicButtons[i].gameObject.SetActive(false);
             }
         }
+    }
+
+    public void Flee()
+    {
+        int fleeSuccess = Random.Range(0, 100);
+        if (fleeSuccess < chanceToFlee)
+        {
+            battleActive = false;
+            battleScene.SetActive(false);
+        }
+        else
+        {
+            NextTurn();
+            battleNotice.theText.text = "Could not run!";
+            battleNotice.Activate();
+        }
+    }
+   
+    public void OpenItemMenu()
+    {
+        itemMenu.SetActive(true);
+
+        //SIMILAR TO OUR GAMEMENU SHOWITEMS Function, but here we 
+        //1. check the itemsheld to see if there's an item
+        //and instead of updating the players inventory we update the item window in battle
+        for (int i = 0; i < GameMenu.instance.itemButtons.Length; i++)
+        {
+            BattleManager.instance.itemButtonsToShow[i].buttonValue = i;
+            //If there's an item in that position
+            if (GameManager.instance.itemsHeld[i] != "")
+            {
+                itemButtonsToShow[i].ButtonImage.gameObject.SetActive(true);
+                //Calling item function in gamemanager, returning an item, going into item script and getting the sprite of the item
+                itemButtonsToShow[i].ButtonImage.sprite = GameManager.instance.GetItemDetails(GameManager.instance.itemsHeld[i]).itemSprite;
+                //Setting amt of items
+                itemButtonsToShow[i].amountText.text = GameManager.instance.numberOfItems[i].ToString();
+            }
+            else
+            {
+                itemButtonsToShow[i].ButtonImage.gameObject.SetActive(false);
+                itemButtonsToShow[i].amountText.text = "";
+            }
+        }
+
+    }
+    public void SelectItemBattle(Item newItem)
+    {
+        activeItemBattle = newItem;
+
+        if (activeItemBattle.isItem)
+        {
+            useButtonTextBattle.text = "Use";
+        }
+
+        if (activeItemBattle.isWeapon || activeItemBattle.isArmour)
+        {
+            useButtonTextBattle.text = "Equip";
+        }
+
+        itemNameBattle.text = activeItemBattle.itemName;
+        itemDescriptionBattle.text = activeItemBattle.description;
     }
 }
 

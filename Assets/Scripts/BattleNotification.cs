@@ -28,5 +28,6 @@ public class BattleNotification : MonoBehaviour
     public void Activate()
     {
         gameObject.SetActive(true);
+        awakeCounter = awakeTime;
     }
 }
