@@ -465,6 +465,14 @@ public class BattleManager : MonoBehaviour
         itemNameBattle.text = activeItemBattle.itemName;
         itemDescriptionBattle.text = activeItemBattle.description;
     }
+
+    public void UseItemBattle()
+    {
+        activeItemBattle.UseInBattle(currentTurn);
+        itemMenu.SetActive(false);
+        NextTurn();
+    }
+
 }
 
 

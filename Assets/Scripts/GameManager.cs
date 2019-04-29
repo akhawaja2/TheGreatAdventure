@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        Debug.Log(foundItem);
         if (foundItem)
         {
             numberOfItems[itemPosition]--;

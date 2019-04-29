@@ -41,30 +41,34 @@ public class Item : MonoBehaviour
     public void Use(int charToUseOn)
     {
         CharStats selectedChar = GameManager.instance.playerStats[charToUseOn];
+        //BattleChar selectedBattleChar = BattleManager.instance.activeBattlers[charToUseOn];
 
         if (isItem)
         {
             if (affectHP)
             {
                 selectedChar.currentHP += amountToChange;
-
+                //selectedBattleChar.currentHP += amountToChange;
                 if (selectedChar.currentHP > selectedChar.maxHP)
                 {
                     selectedChar.currentHP = selectedChar.maxHP;
+                    //selectedBattleChar.currentHP = selectedBattleChar.maxHP;
                 }
             }
             if (affectMP)
             {
                 selectedChar.currentMP += amountToChange;
-
+                //selectedBattleChar.currentMP += amountToChange;
                 if (selectedChar.currentMP > selectedChar.maxMP)
                 {
                     selectedChar.currentMP = selectedChar.maxMP;
+                   // selectedBattleChar.currentMP = selectedBattleChar.maxMP;
                 }
             }
             if (affectStr)
             {
                 selectedChar.strength += amountToChange;
+                //selectedBattleChar.strength += amountToChange;
             }
         }
 
@@ -80,7 +84,6 @@ public class Item : MonoBehaviour
 
         if (isArmour)
         {
-            Debug.Log("Armor selected");
             if (selectedChar.equppedArmr != "")
             {
                 GameManager.instance.AddItem(selectedChar.equppedArmr);
@@ -88,7 +91,61 @@ public class Item : MonoBehaviour
             selectedChar.equppedArmr = itemName;
             selectedChar.armrPwr = armourStrength;
         }
-        Debug.Log("Entered here");
+        GameManager.instance.RemoveItem(itemName);
+    }
+    public void UseInBattle(int charToUseOn)
+    {
+        BattleChar selectedBattleChar = BattleManager.instance.activeBattlers[charToUseOn];
+
+        if (isItem)
+        {
+            if (affectHP)
+            {
+                selectedBattleChar.currentHP += amountToChange;
+                //selectedBattleChar.currentHP += amountToChange;
+                if (selectedBattleChar.currentHP > selectedBattleChar.maxHP)
+                {
+                    selectedBattleChar.currentHP = selectedBattleChar.maxHP;
+                    //selectedBattleChar.currentHP = selectedBattleChar.maxHP;
+                }
+            }
+            if (affectMP)
+            {
+                selectedBattleChar.currentMP += amountToChange;
+                //selectedBattleChar.currentMP += amountToChange;
+                if (selectedBattleChar.currentMP > selectedBattleChar.maxMP)
+                {
+                    selectedBattleChar.currentMP = selectedBattleChar.maxMP;
+                    // selectedBattleChar.currentMP = selectedBattleChar.maxMP;
+                }
+            }
+            if (affectStr)
+            {
+                selectedBattleChar.strength += amountToChange;
+                //selectedBattleChar.strength += amountToChange;
+            }
+        }
+
+        //Curently cant switch weapons or armor in battle
+        /*if (isWeapon)
+        {
+            if (selectedBattleChar.wpn != "")
+            {
+                GameManager.instance.AddItem(selectedBattleChar.equippedWpn);
+            }
+            selectedBattleChar.equippedWpn = itemName;
+            selectedBattleChar.wpnPwr = weaponStrength;
+        }
+
+        if (isArmour)
+        {
+            if (selectedChar.equppedArmr != "")
+            {
+                GameManager.instance.AddItem(selectedChar.equppedArmr);
+            }
+            selectedChar.equppedArmr = itemName;
+            selectedChar.armrPwr = armourStrength;
+        }*/
         GameManager.instance.RemoveItem(itemName);
     }
 }

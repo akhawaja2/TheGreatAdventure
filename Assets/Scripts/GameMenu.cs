@@ -233,6 +233,7 @@ public class GameMenu : MonoBehaviour
     public void CloseItemCharChoice()
     {
         itemCharChoiceMenu.SetActive(false);
+        BattleManager.instance.itemMenu.SetActive(false);
     }
 
     public void UseItem(int selectChar)
