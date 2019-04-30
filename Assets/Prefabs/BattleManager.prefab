@@ -22652,6 +22652,7 @@ MonoBehaviour:
   - {fileID: 3661475547459689132, guid: bd0446f6b06ea494ca93a5f7082f556b, type: 3}
   - {fileID: 5137710760047180495, guid: d18cdc4262b5aee47b2ea1925daae58b, type: 3}
   - {fileID: 7027798369448623401, guid: 46153995aa4179e4684868db0b7575d8, type: 3}
+  - {fileID: 4876334101617324596, guid: b603b5d18992a3544b2d132e5e5532ad, type: 3}
   activeBattlers: []
   currentTurn: 0
   turnWaiting: 0
@@ -22767,6 +22768,8 @@ MonoBehaviour:
   itemDescriptionBattle: {fileID: 2953458248090471809}
   useButtonTextBattle: {fileID: 2953458247659878193}
   gameOverScene: GameOver
+  rewardXP: 0
+  rewardItems: []
 --- !u!1 &2953458248383666025
 GameObject:
   m_ObjectHideFlags: 0

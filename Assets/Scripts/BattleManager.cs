@@ -58,6 +58,10 @@ public class BattleManager : MonoBehaviour
 
     public int rewardXP;
     public string[] rewardItems;
+
+    //For boss battles player should not be able to run away
+    //(Who can run away froma dragon)?
+    public bool cannotFlee;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,8 +74,7 @@ public class BattleManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-
-            BattleStart(new string[] { "BlueWizard", "Spider" });
+            BattleStart(new string[] { "BlueWizard", "Spider" }, false);
         }
         if (battleActive)
         {
@@ -98,10 +101,11 @@ public class BattleManager : MonoBehaviour
             NextTurn();
         }
     }
-    public void BattleStart(string[] enemiesToSpawn)
+    public void BattleStart(string[] enemiesToSpawn, bool setCannotFlee)
     {
         if (!battleActive)
-        { 
+        {
+            cannotFlee = setCannotFlee;
             battleActive = true;
             GameManager.instance.battleActive = true;
             transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, transform.position.z);
@@ -427,21 +431,30 @@ public class BattleManager : MonoBehaviour
 
     public void Flee()
     {
-        int fleeSuccess = Random.Range(0, 100);
-        if (fleeSuccess < chanceToFlee)
+        if (cannotFlee)
         {
-            fleeing = true;
-            //End battle
-            battleActive = false;
-            battleScene.SetActive(false);
+            battleNotice.theText.text = "Cannot flee this battle!";
+            battleNotice.Activate();
 
-            StartCoroutine(EndBattleCo());
         }
         else
         {
-            NextTurn();
-            battleNotice.theText.text = "Could not run!";
-            battleNotice.Activate();
+            int fleeSuccess = Random.Range(0, 100);
+            if (fleeSuccess < chanceToFlee)
+            {
+                fleeing = true;
+                //End battle
+                battleActive = false;
+                battleScene.SetActive(false);
+
+                StartCoroutine(EndBattleCo());
+            }
+            else
+            {
+                NextTurn();
+                battleNotice.theText.text = "Could not run!";
+                battleNotice.Activate();
+            }
         }
     }
    

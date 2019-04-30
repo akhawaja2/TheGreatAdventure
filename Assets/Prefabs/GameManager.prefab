@@ -186,7 +186,7 @@ MonoBehaviour:
   - Test the Quest
   - Save the world
   - aaaa
-  questMarkersComplete: 0001010100
+  questMarkersComplete: 
 --- !u!1 &6779736513582474493
 GameObject:
   m_ObjectHideFlags: 0
