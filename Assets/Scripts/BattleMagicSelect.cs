@@ -9,17 +9,32 @@ public class BattleMagicSelect : MonoBehaviour
     public Text nameText;
     public Text costText;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() {     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update(){}
 
+    /**/
+    /*
+    BattleMagicSelect.cs --- Press()
+    NAME
+            Press() 
+    SYNOPSIS
+            How we handle when the user selects a spell to use in combat
+    DESCRIPTION
+            1. Check if the user has Mana.
+            2. If they do, we close out the magic menu and then open the target menu
+                And subtract the mana cost from the users mana points
+            3. If they do no thave the Mana we let the user know they do not have enough 
+                And then close the magic menu.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void Press()
     {
         if (BattleManager.instance.activeBattlers[BattleManager.instance.currentTurn].currentMP >= spellCost)

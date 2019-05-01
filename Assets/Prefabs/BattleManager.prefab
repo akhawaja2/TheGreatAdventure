@@ -22653,6 +22653,7 @@ MonoBehaviour:
   - {fileID: 5137710760047180495, guid: d18cdc4262b5aee47b2ea1925daae58b, type: 3}
   - {fileID: 7027798369448623401, guid: 46153995aa4179e4684868db0b7575d8, type: 3}
   - {fileID: 4876334101617324596, guid: b603b5d18992a3544b2d132e5e5532ad, type: 3}
+  - {fileID: 2959754445468097893, guid: 05bba08c951b47a40a7fd86af9ebeae2, type: 3}
   activeBattlers: []
   currentTurn: 0
   turnWaiting: 0
@@ -22770,6 +22771,7 @@ MonoBehaviour:
   gameOverScene: GameOver
   rewardXP: 0
   rewardItems: []
+  cannotFlee: 0
 --- !u!1 &2953458248383666025
 GameObject:
   m_ObjectHideFlags: 0

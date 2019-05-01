@@ -5,17 +5,23 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class BattleManager : MonoBehaviour
 {
+    //Only want 1 battlemanager so making it an instance
     public static BattleManager instance;
 
+    //To check if we are currently in battle
     private bool battleActive;
 
+    //The battlescene view we are using (could be a desrt one or a cave one or a snowy one)
     public GameObject battleScene;
 
+    //The positions of the players & enemies on the screen
     public Transform[] playerPositions;
     public Transform[] enemyPositions;
 
+    //The prefab information for the players and enemies
     public BattleChar[] playerPrefabs;
     public BattleChar[] enemyPrefabs;
+    //A list of the active battlers
     public List<BattleChar> activeBattlers = new List<BattleChar>();
 
     //cycle through activebattlers then resets to 0
@@ -23,53 +29,102 @@ public class BattleManager : MonoBehaviour
     //while waiting for turn to end - whether it be from player or from enemy
     public bool turnWaiting;
 
+    //Holds the battle option buttons
     public GameObject uiButtonsHolder;
 
     //Here we are referencing the battle move object
     public BattleMove[] movesList;
 
+    //The animation for the enemy attack
     public GameObject enemyAttackEffect;
 
+    //The amount of damage we are doing
     public DamageNumber theDamageNumber;
-
 
     //to update player info during battle
     public Text[] playerName, playerHP, playerMP;
 
+    //Variables to deal with what targets we want to select
     public GameObject targetMenu;
     public BattleTargetButton[] targetButtons;
 
+    //Variable to deal with the magic menu
     public GameObject magicMenu;
-
     public BattleMagicSelect[] magicButtons;
 
+    //Variable to deal with notifications during battle
+    //e.x. Out of mana or if player cannot flee
     public BattleNotification battleNotice;
 
+
+    //Base odd of fleeing
     public int chanceToFlee = 35;
     private bool fleeing;
 
+    //The item menu functionality 
     public GameObject itemMenu;
-
     public ItemButton[] itemButtonsToShow;
     public Item activeItemBattle;
     public Text itemNameBattle, itemDescriptionBattle, useButtonTextBattle;
 
+    //Game over scene name if player botches the battle
     public string gameOverScene;
 
+    //Rewards to give post-successful battle
     public int rewardXP;
     public string[] rewardItems;
 
     //For boss battles player should not be able to run away
     //(Who can run away froma dragon)?
     public bool cannotFlee;
-    // Start is called before the first frame update
+
+    /**/
+    /*
+    BattleManager.cs --- Start()
+    NAME
+            Start() 
+    SYNOPSIS
+           // Start is called before the first frame update
+    DESCRIPTION
+            1. Set our instance to the current object
+            2. Tell Unity not to destroy this object and preserve it even if we load a new scene
+                    (having 2 battlemanagers gets quite messy with canvases and button inputs etc. etc)
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
+    
     void Start()
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
+    /**/
+    /*
+    BattleManager.cs --- Update()
+    NAME
+            Update() 
+    SYNOPSIS
+            Update is called once per frame
+    DESCRIPTION
+            1. I used this function to test battles initially (So if I hit T a battle would start automatically)
+            2. Otherwise I check if a battle is active
+            3. if it is our turn I show the available button options for the user, otherwise I start a coroutine for the enemy move
+            4. I also had testing for the N key  to go to the next active battlers turn
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
