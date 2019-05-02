@@ -8,8 +8,6 @@ public class AttackEffect : MonoBehaviour
     public float effectLength;
     //What the sound effect is
     public int soundEffect;
-    
-
     /**/
     /*
     AttackEffect.cs --- Start()

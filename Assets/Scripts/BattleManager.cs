@@ -41,7 +41,7 @@ public class BattleManager : MonoBehaviour
     //The amount of damage we are doing
     public DamageNumber theDamageNumber;
 
-    //to update player info during battle
+    //to update all of the player info during battle
     public Text[] playerName, playerHP, playerMP;
 
     //Variables to deal with what targets we want to select
@@ -156,6 +156,33 @@ public class BattleManager : MonoBehaviour
             NextTurn();
         }
     }
+
+    /**/
+    /*
+    BattleManager.cs --- BattleStart()
+    NAME
+            public void BattleStart(string[] enemiesToSpawn, bool setCannotFlee)
+    SYNOPSIS
+            This function is in charge of handling the first initial turn of the battle
+    DESCRIPTION
+            BattleStart is how I start the battle I check if we are currently in a battle. If we aren't in a battle, I set our 
+            flee variable to whether or not we are eligible to escape in this battle (which is only false during boss battles). We set
+            battle active to be true, and then show our battle scene game object so the users can see the battle.
+
+            Then we loop through our playerstats (which in this case is MAX 3), and  check if the player is an active player.
+            If the play is active then a BattleChar is created - it's just an object used during the battle scene.
+            We then add the player and their stats to our Active Battlers List, so we have a list of who is fighting in the battle. 
+            Then we add our enemies to the active battlers list, which is dependant on what is in the battlemanager in Unity. 
+            Then we set turn waiting to be true (so the UI does not appear) and then we randomize the turn and update the UI accordingly
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
+  
     public void BattleStart(string[] enemiesToSpawn, bool setCannotFlee)
     {
         if (!battleActive)
@@ -214,7 +241,25 @@ public class BattleManager : MonoBehaviour
         currentTurn = Random.Range(0, activeBattlers.Count);
         UpdateUIStats();
     }
-
+/**/
+    /*
+    BattleManager.cs --- NextTurn()
+    NAME
+            NextTurn() 
+    SYNOPSIS
+            Moving on to the next turn in battle
+    DESCRIPTION
+            I increment the turn - If the turn number is greater then the amount of people in battle, I set it to zero
+            because that means the battle phase is starting over at player 0. Then I set turn waiting to true incase it is
+            not our turn and then update the battle & UiStats. 
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void NextTurn()
     {
         currentTurn++;
@@ -227,6 +272,28 @@ public class BattleManager : MonoBehaviour
         UpdateBattle();
         UpdateUIStats();
     }
+    /**/    
+    /*
+    BattleManager.cs --- UpdateBattle()
+    NAME
+            public void UpdateBattle()
+    SYNOPSIS
+            Updating our battle information every turn.
+    DESCRIPTION
+            I loop through the active battlers and check if any of them are dead. If they are, I update their sprite.
+            For players, that means their sprite changes to them lying on the ground 'dead'. For enemies, that means they
+            fade to black and then are removed from the scene.
+            Then I check if all the players or enemies are dead. If all the players are dead, it's game over, and I give
+            The user the option to load from save or quit the game. If all the enemies are dead, The user gets their rewards and is taken out of 
+            battle. 
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void UpdateBattle()
     {
         //true by default because we check if any player/enemy has health then set it to false
@@ -304,10 +371,31 @@ public class BattleManager : MonoBehaviour
         
     }
 
-    //IEnumerator is a coroutine is something that
-    //happens outside normal order in unity
-    //When we call it, it will start running and everything
-    //else will run while this is in the background
+    /**/    
+    /*
+    BattleManager.cs --- EnemyMoveCo()
+    NAME
+            public IEnumerator EnemyMoveCo()
+    SYNOPSIS
+            Updating our battle information every turn.
+    DESCRIPTION
+            IEnumerator is a coroutine-  something that
+            happens outside normal order in unity
+            When called, it will start running and everything
+            else will run while this function is is in the background
+
+            In summation, in this function turnwaiting is st to false and then we pause for a second,
+            then run EnemyAttack() and while the enemy attack animation is ran the function pauses for another second before
+            Going to the next turn.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
+    
     public IEnumerator EnemyMoveCo()
     {
         turnWaiting = false;
@@ -316,6 +404,27 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         NextTurn();
     }
+
+     /**/    
+    /*
+    BattleManager.cs --- EnemyAttack()
+    NAME
+            public void EnemyAttack()
+    SYNOPSIS
+            How the enemy executes attacks on the player.
+    DESCRIPTION
+            This function gets  alist of players from our active battlers (can't be attacking their teammates!).
+            And from there selects a player at random, selects an attack at random,
+            and then shows the move sprite on the player's sprite (so it looks like they are being attacked) and then deal the damage
+            To the player
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void EnemyAttack()
     {
         //pick player to attack - loop through active battlers list and
@@ -349,7 +458,25 @@ public class BattleManager : MonoBehaviour
         Instantiate(enemyAttackEffect, activeBattlers[currentTurn].transform.position, activeBattlers[currentTurn].transform.rotation);
         DealDamage(selectedTarget, movePower);
     }
-
+    /**/    
+    /*
+    BattleManager.cs --- DealDamage()
+    NAME
+           public void DealDamage(int target, int movePower)
+    SYNOPSIS
+            How damage is dealt to a battler
+    DESCRIPTION
+            This function calculates damage dealt to a battler. The algorithm for calculating damage is:
+            damageGiven = (attack power / defencepower) * movePower * a random float between .9 & 1.1.
+            Then the damage is displayed on the screen and the battlers health and the UI are updated.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void DealDamage(int target, int movePower)
     {
         //The attackers power
@@ -364,22 +491,43 @@ public class BattleManager : MonoBehaviour
 
         int damageToGive = Mathf.RoundToInt(damageCalc);
 
-        Debug.Log(activeBattlers[currentTurn].charName + " is dealing " + damageCalc + " to " + activeBattlers[target].charName);
+        //Debug.Log(activeBattlers[currentTurn].charName + " is dealing " + damageCalc + " to " + activeBattlers[target].charName);
 
+        //Updating hp after taking damage
         activeBattlers[target].currentHP -= damageToGive;
 
+        //Creatign a DamageNumber object - the position is going to be a little above the player, the text being the amount of damage given.
         Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetDamage(damageToGive);
         UpdateUIStats();
     }
-
+    /**/    
+    /*
+    BattleManager.cs --- UpdateUIStats()
+    NAME
+           public void UpdateUIStats()
+    SYNOPSIS
+            Updating the UI stats.
+    DESCRIPTION
+            This function updates the UI stats by looping through all of the active players. The first few people in activebattlers will always be
+            players, so I double check, and then set their gameobject to be active and update the text for their name, health, and Mana.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void UpdateUIStats()
     {
         for (int i = 0; i < playerName.Length; i++)
         {
+            //Validating still in array - would bring problems if same # of players and enemies. 
             if (activeBattlers.Count > i)
             {
                 if(activeBattlers[i].isPlayer)
                 {
+                    //battlechar reference to update UI
                     BattleChar playerData = activeBattlers[i];
                     playerName[i].gameObject.SetActive(true);
                     playerName[i].text= playerData.name;
@@ -398,7 +546,25 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
+    /**/    
+    /*
+    BattleManager.cs --- PlayerAttack()
+    NAME
+          public void PlayerAttack(string moveName  , int selectedTarget)
+    SYNOPSIS
+            Dealing with player attack (what move and their target).
+    DESCRIPTION
+            This function checks if the selected movename is a valid list in the movelist, and then sets the movePower. Then like previously, the 
+            move animation is instantiated and the attack effect is also created. After that, the damage is dealt, stats are updated, menu is hidden again and
+            the next turn begins.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void PlayerAttack(string moveName  , int selectedTarget)
     {
         int movePower = 0;
@@ -423,6 +589,24 @@ public class BattleManager : MonoBehaviour
         NextTurn();
         
     }
+    /**/    
+    /*
+    BattleManager.cs --- OpenTargetMenu()
+    NAME
+          public void OpenTargetMenu(string moveName)
+    SYNOPSIS
+            Showing the player what targets they can deal damage to.
+    DESCRIPTION
+            This function sets the target UI to appear in the game, and gathers a list of enemies by checking if an activebattler
+            is an enemy. After getting the list, the buttons text with the alive enemies are shown to the player.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void OpenTargetMenu(string moveName)
     {
         targetMenu.SetActive(true);
@@ -455,18 +639,39 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+    /**/    
+    /*
+    BattleManager.cs --- OpenMagicMenu()
+    NAME
+          public void OpenMagicMenu()
+    SYNOPSIS
+            Showing the player what magic abilities are available to them.
+    DESCRIPTION
+            This function loops through the magic menu and adds buttons for every magical ability the user can use (set in the Unity Game engine).
+            Then the name and the amount of mana that it costs is updated for the player to see in game.
 
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void OpenMagicMenu()
     {
         magicMenu.SetActive(true);
         for (int i = 0; i < magicButtons.Length; i++)
         {
+            //Checking if the current active battler has magic moves.
             if (activeBattlers[currentTurn].movesAvailable.Length > i)
             {
+                //Setting the button to click to do the move to appear on the screen.
                 magicButtons[i].gameObject.SetActive(true);
 
+                //Setting the spellname 
                 magicButtons[i].spellName = activeBattlers[currentTurn].movesAvailable[i];
-
+                //Setting the text for the name
                 magicButtons[i].nameText.text = magicButtons[i].spellName;
                 for (int j = 0; j < movesList.Length; j++)
                 {
@@ -483,7 +688,27 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-
+    /**/    
+    /*
+    BattleManager.cs --- Flee()
+    NAME
+          public void Flee()
+    SYNOPSIS
+            How the player can flee from a battle
+    DESCRIPTION
+            This function checks the cannotFlee bool, and then act accordingly. If the player can't flee,
+            the battleNotice object is shown on the screen letting the player know they cannot flee. If they player can flee,
+            the success number is calculated from 0-100. If the number is less then 35 (our flee rate), then the player can flee and the battle scene is 
+            deactivated and the battleactive is set to false, and then the scene fades out. If the flee check fails, then the players turn is skipped and they
+            are told that they cannot flee.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void Flee()
     {
         if (cannotFlee)
@@ -512,7 +737,24 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-   
+   /**/    
+    /*
+    BattleManager.cs --- OpenItemMenu()
+    NAME
+          public void OpenItemMenu()
+    SYNOPSIS
+            Shows the players their items during battle.
+    DESCRIPTION
+            This function shows the player the function menu, loops through all of our items and shows them to the player. The item menu shown here
+            is the same as the inventory menu, but this one is specifically for use during battles.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void OpenItemMenu()
     {
         itemMenu.SetActive(true);
@@ -540,10 +782,30 @@ public class BattleManager : MonoBehaviour
         }
 
     }
+
+    /**/    
+    /*
+    BattleManager.cs --- SelectItemBattle()
+    NAME
+          public void SelectItemBattle(Item newItem)
+    SYNOPSIS
+            How the player can see the description of an item and the name of what they select in battle/
+    DESCRIPTION
+            This function takes the selected item and updates the description and name of the item on the window for the player to see.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void SelectItemBattle(Item newItem)
     {
         activeItemBattle = newItem;
 
+
+        //Use is for potions, equip is for weapons (unless the player wants to use a potion as a weapon...)
         if (activeItemBattle.isItem)
         {
             useButtonTextBattle.text = "Use";
@@ -557,14 +819,53 @@ public class BattleManager : MonoBehaviour
         itemNameBattle.text = activeItemBattle.itemName;
         itemDescriptionBattle.text = activeItemBattle.description;
     }
-
+    /**/    
+    /*
+    BattleManager.cs --- UseItemBattle()
+    NAME
+          public void UseItemBattle()
+    SYNOPSIS
+            How the player can use items during battle.
+    DESCRIPTION
+            This function calls the UseInBattle function (located in the Item script) for the current player (which is their currentTurn index in the ActiveBattlers list)
+            and then goes on to the next turn
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void UseItemBattle()
     {
         activeItemBattle.UseInBattle(currentTurn);
         itemMenu.SetActive(false);
         NextTurn();
     }
-
+    /**/    
+    /*
+    BattleManager.cs --- EndBattleCo()
+    NAME
+          public IEnumerator EndBattleCo()
+    SYNOPSIS
+            An Enumerator for ending the battle and showing the proper animations.
+    DESCRIPTION
+            This function sets every menu and our battleActive bool to false (so they aren't shown outside of battle), and then wait for the last 
+            enemy to fade out before coming back into the function and fading to black - after fading to black the active players stats are updated 
+            (since if a player lost hp in battle but got out of it alive their hp should still be the same as it was in battle).
+            Then the battleChars are destroyed since they will no longer be needed. 
+            After that the game fades from black to the current scene again and clears the list of active battlers.
+            Then a check is done to see if the player fleed or won the battle - if they fled then they receive no rewards for the battle (the
+            rwards which are set in the Unity Game Engine).
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public IEnumerator EndBattleCo()
     {
         battleActive = false;
@@ -620,6 +921,24 @@ public class BattleManager : MonoBehaviour
         AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
     }
 
+/**/    
+    /*
+    BattleManager.cs --- GameOverCo()
+    NAME
+          public IEnumerator GameOverCo()
+    SYNOPSIS
+            An Enumerator for showing the user the gameover screen
+    DESCRIPTION
+            This function is called when a player loses a battle - the game fades to black while setting the battle active bool and the scene to false,
+            and then loads the game over scene (which lets the player load the last save OR quit to the menu).
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public IEnumerator GameOverCo()
     {
         battleActive = false;

@@ -199,11 +199,11 @@ MonoBehaviour:
   lines:
   - n-Rob Boss
   - Who are you?
-  - n-Player
+  - n-Tom
   - Who are... you?
   - n-Rob Boss
   - This conversation isn't going well
-  - n-Player
+  - n-Tom
   - Why am I here?
   - n-Rob Boss
   - I can't answer that lad. All I can say is be wary if you travel to Sheridan

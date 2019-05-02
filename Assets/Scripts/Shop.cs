@@ -108,9 +108,9 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void SelectBuyItem(Item buyItem)
+    public void SelectBuyItem(Item selectedItem)
     {
-        selectedItem = buyItem;
+        Debug.Log(selectedItem.value);
         buyItemName.text = selectedItem.itemName;
         buyItemDescription.text = selectedItem.description;
         buyItemValue.text = "Value: " + selectedItem.value + "g";
@@ -127,8 +127,6 @@ public class Shop : MonoBehaviour
     {
         if (selectedItem != null)
         {
-
-
             if (GameManager.instance.currentGold >= selectedItem.value)
             {
                 GameManager.instance.currentGold -= selectedItem.value;
