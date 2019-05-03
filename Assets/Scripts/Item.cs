@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Item class is how we create items and interact with them
+//This data is set into the Unity Inspector.
 public class Item : MonoBehaviour
 {
     [Header("Item Type")]
@@ -38,6 +40,27 @@ public class Item : MonoBehaviour
     {
         
     }
+    /**/    
+    /*
+    Item.Cs - Use()
+    NAME
+            public void Use(int charToUseOn)
+    SYNOPSIS
+            Use is called when the user selects to use an item.
+    DESCRIPTION
+            This function gets the selected character based on the charToUseOn variable
+            passed inside the function, then checks what type of item it is dealing with. 
+            If the item is supposed to affect HP, it updates the HP value. If MP, it updates the
+            MP value and if it affects Str it affects the Strength value. If weapon/armor it also
+            updates that information. It then removes the item from the players inventory.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void Use(int charToUseOn)
     {
         CharStats selectedChar = GameManager.instance.playerStats[charToUseOn];
@@ -93,6 +116,25 @@ public class Item : MonoBehaviour
         }
         GameManager.instance.RemoveItem(itemName);
     }
+     /**/    
+    /*
+    Item.Cs - UseInBattle()
+    NAME
+            public void UseInBattle(int charToUseOn)
+    SYNOPSIS
+            UseInBattle is called when the user selects to use an item during battle.
+    DESCRIPTION
+            This function does the same thing as use with a few alterations - instead of affecting
+            a player normally in the game world, it is making changes to a players BattleChar stats. It also
+            currently does not allow for the player to equip armor or weapons during battle.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void UseInBattle(int charToUseOn)
     {
         BattleChar selectedBattleChar = BattleManager.instance.activeBattlers[charToUseOn];

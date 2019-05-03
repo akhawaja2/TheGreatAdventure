@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+//The Camera Controller is the script behind how the custom camera is implemented ingame
 public class CameraController : MonoBehaviour
 {
     //The focus of the camera (ex. player, or maybe an NPC...)
@@ -18,9 +19,28 @@ public class CameraController : MonoBehaviour
     private float halfHeight;
     private float halfWidth;
 
+    //Playing music via the camera 
     public int musicToPlay;
     private bool musicStarted;
-    // Start is called before the first frame update
+    /**/    
+    /*
+    CameraController.Cs 
+    NAME
+          void Start()
+    SYNOPSIS
+           What the camera does on instantiation
+    DESCRIPTION
+            This function searches for the player controller location, and get the 
+            camera size and set the camera so it does not extend past the map (so the player
+            cannot see into the void)
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     void Start()
     {
         //target = PlayerController.instance.transform;
@@ -38,8 +58,25 @@ public class CameraController : MonoBehaviour
         //Setting the bounds to the maps local bounds
         PlayerController.instance.SetBounds(theMap.localBounds.min, theMap.localBounds.max);
     }
-
-    // LateUpdate is called once per frame after Update()
+    /**/    
+    /*
+    CameraController.Cs 
+    NAME
+          void LateUpdate()
+    SYNOPSIS
+           LateUpdate is called once per frame after Update()
+    DESCRIPTION
+            This function just follows the player every frame as the move and plays music if
+            it has not started
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
+    
     void LateUpdate()
     {
         transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
