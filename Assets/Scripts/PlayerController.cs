@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//PlayerController is how the player movement is handled.
+
 public class PlayerController : MonoBehaviour
 {
+    //Our players rigidbody and moveSpeed
     public Rigidbody2D rigidBody;
     public float moveSpeed;
-
+    //The players animations (when changing direction/moving)
     public Animator myAnim;
-
+    //Making only one player to controll
     public static PlayerController instance;
+    //Name of transitions
     public string areaTransitionName;
 
     private Vector3 bottomLeftLimit;
@@ -17,8 +21,25 @@ public class PlayerController : MonoBehaviour
 
 
     public bool canMove = true;
-
-    // Start is called before the first frame update
+    /**/    
+    /*
+    PlayerController.Cs - Start()
+    NAME
+            void Start()
+    SYNOPSIS
+            Start is called before the first frame update
+    DESCRIPTION
+            The start function in this Class creates an instanceof the player if it exists. If the
+            player is created and it is not equal to the instance (eg. duplicate) the duplicate is
+            deleted.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     void Start()
     {
         if (instance == null)
@@ -38,8 +59,24 @@ public class PlayerController : MonoBehaviour
         //Game object (In this case the player)
         DontDestroyOnLoad(gameObject);
     }
-
-    // Update is called once per frame
+    /**/    
+    /*
+    PlayerController.Cs - Update()
+    NAME
+            public void Update()
+    SYNOPSIS
+            Update is called once per frame
+    DESCRIPTION
+            The Update function here checks if the player can move and sets their speed if they can.
+            It also checks which direction the player is in and moves that direction.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     void Update()
     {
         if (canMove)
@@ -74,7 +111,24 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, bottomLeftLimit.x, topRightLimit.x), Mathf.Clamp(transform.position.y, bottomLeftLimit.y, topRightLimit.y), transform.position.z);
     }
 
-    //Setter for our bounds
+    /**/    
+    /*
+    PlayerController.Cs - SetBounds()
+    NAME
+            public void SetBounds(Vector3 botLeft, Vector3 topRight)
+    SYNOPSIS
+            Setter for our bounds
+    DESCRIPTION
+            The SetBounds function is to ensure that the player model does not get clipped off
+            when the player collides with the edge of the map.
+    RETURNS
+            N/A
+    AUTHOR
+            Abu Khawaja
+    DATE
+            4/30/2019
+    */
+    /**/
     public void SetBounds(Vector3 botLeft, Vector3 topRight)
     {
         //Adding the new vector so the player model does not get clipped off when reaching an end
