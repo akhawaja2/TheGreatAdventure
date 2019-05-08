@@ -1,0 +1,152 @@
+\hypertarget{class_battle_manager}{}\section{Battle\+Manager Class Reference}
+\label{class_battle_manager}\index{BattleManager@{BattleManager}}
+
+
+Inherits Mono\+Behaviour.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a061a04704bc6c175e3b41a29e2d7680c}\label{class_battle_manager_a061a04704bc6c175e3b41a29e2d7680c}} 
+void {\bfseries Battle\+Start} (string\mbox{[}$\,$\mbox{]} enemies\+To\+Spawn, bool set\+Cannot\+Flee)
+\item 
+\mbox{\Hypertarget{class_battle_manager_a9377bfedc2c1003b4584dd02a3b87105}\label{class_battle_manager_a9377bfedc2c1003b4584dd02a3b87105}} 
+void {\bfseries Next\+Turn} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_a6da90533c0134cfcee0f034938fa3e1d}\label{class_battle_manager_a6da90533c0134cfcee0f034938fa3e1d}} 
+void {\bfseries Update\+Battle} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_a8ec394030d9fe63f4d2fa5e90faf5ebe}\label{class_battle_manager_a8ec394030d9fe63f4d2fa5e90faf5ebe}} 
+I\+Enumerator {\bfseries Enemy\+Move\+Co} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_a217b50a13bb8353504cff1e4ad8bef85}\label{class_battle_manager_a217b50a13bb8353504cff1e4ad8bef85}} 
+void {\bfseries Enemy\+Attack} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_a462ed7f04592719709ceb5b2280eabf6}\label{class_battle_manager_a462ed7f04592719709ceb5b2280eabf6}} 
+void {\bfseries Deal\+Damage} (int target, int move\+Power)
+\item 
+\mbox{\Hypertarget{class_battle_manager_aa76a8a928215d9bd5ea33229ef6e57b5}\label{class_battle_manager_aa76a8a928215d9bd5ea33229ef6e57b5}} 
+void {\bfseries Update\+U\+I\+Stats} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_ae55eaa3d28c87ef5890d802430fbaa68}\label{class_battle_manager_ae55eaa3d28c87ef5890d802430fbaa68}} 
+void {\bfseries Player\+Attack} (string move\+Name, int selected\+Target)
+\item 
+\mbox{\Hypertarget{class_battle_manager_a27b4fa121c8ec45895e306c1717dee2d}\label{class_battle_manager_a27b4fa121c8ec45895e306c1717dee2d}} 
+void {\bfseries Open\+Target\+Menu} (string move\+Name)
+\item 
+\mbox{\Hypertarget{class_battle_manager_a54b333967dadb3839d7f385636a4a618}\label{class_battle_manager_a54b333967dadb3839d7f385636a4a618}} 
+void {\bfseries Open\+Magic\+Menu} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_ad85f3f8904914251937d9f0fbcce3da1}\label{class_battle_manager_ad85f3f8904914251937d9f0fbcce3da1}} 
+void {\bfseries Flee} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_ae2a435f44d9769abb08f65645eb394c8}\label{class_battle_manager_ae2a435f44d9769abb08f65645eb394c8}} 
+void {\bfseries Open\+Item\+Menu} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_aa7baa8d3aa675a21f93411c11739dbf9}\label{class_battle_manager_aa7baa8d3aa675a21f93411c11739dbf9}} 
+void {\bfseries Select\+Item\+Battle} (\mbox{\hyperlink{class_item}{Item}} new\+Item)
+\item 
+\mbox{\Hypertarget{class_battle_manager_a4fe2c16790d0569ec0bb2e9d3d7573d3}\label{class_battle_manager_a4fe2c16790d0569ec0bb2e9d3d7573d3}} 
+void {\bfseries Use\+Item\+Battle} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_ac9aa9ec4ec9ca738a98fa9e1afb2f43c}\label{class_battle_manager_ac9aa9ec4ec9ca738a98fa9e1afb2f43c}} 
+I\+Enumerator {\bfseries End\+Battle\+Co} ()
+\item 
+\mbox{\Hypertarget{class_battle_manager_a1df91f31a7254958c88860c701cdf94f}\label{class_battle_manager_a1df91f31a7254958c88860c701cdf94f}} 
+I\+Enumerator {\bfseries Game\+Over\+Co} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a9ff6225611dd2c7e6b0468e93e76dbcc}\label{class_battle_manager_a9ff6225611dd2c7e6b0468e93e76dbcc}} 
+Game\+Object {\bfseries battle\+Scene}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a20b760fd11640f2645e64d5e0fc8b695}\label{class_battle_manager_a20b760fd11640f2645e64d5e0fc8b695}} 
+Transform \mbox{[}$\,$\mbox{]} {\bfseries player\+Positions}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a5a3b2988ea4f8cf2bf9e574f83b3c98f}\label{class_battle_manager_a5a3b2988ea4f8cf2bf9e574f83b3c98f}} 
+Transform \mbox{[}$\,$\mbox{]} {\bfseries enemy\+Positions}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a5c92a8ab3f82e31b9fed1c6e1cf6558e}\label{class_battle_manager_a5c92a8ab3f82e31b9fed1c6e1cf6558e}} 
+\mbox{\hyperlink{class_battle_char}{Battle\+Char}} \mbox{[}$\,$\mbox{]} {\bfseries player\+Prefabs}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a5a40c7dcea1e37b28cdc862d34f311f7}\label{class_battle_manager_a5a40c7dcea1e37b28cdc862d34f311f7}} 
+\mbox{\hyperlink{class_battle_char}{Battle\+Char}} \mbox{[}$\,$\mbox{]} {\bfseries enemy\+Prefabs}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a99b9c9bc101db6bf5eac1b0ae7d38731}\label{class_battle_manager_a99b9c9bc101db6bf5eac1b0ae7d38731}} 
+List$<$ \mbox{\hyperlink{class_battle_char}{Battle\+Char}} $>$ {\bfseries active\+Battlers} = new List$<$\mbox{\hyperlink{class_battle_char}{Battle\+Char}}$>$()
+\item 
+\mbox{\Hypertarget{class_battle_manager_ad7d2b3cf3c34abf1d615ca169388f99b}\label{class_battle_manager_ad7d2b3cf3c34abf1d615ca169388f99b}} 
+int {\bfseries current\+Turn}
+\item 
+\mbox{\Hypertarget{class_battle_manager_aa46dd8893d49aed77cc47dedd861fd11}\label{class_battle_manager_aa46dd8893d49aed77cc47dedd861fd11}} 
+bool {\bfseries turn\+Waiting}
+\item 
+\mbox{\Hypertarget{class_battle_manager_aa2bdf0db6652035e37d5fd00ba1468fb}\label{class_battle_manager_aa2bdf0db6652035e37d5fd00ba1468fb}} 
+Game\+Object {\bfseries ui\+Buttons\+Holder}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a7d1ecfd1bd92eee7327d9015175fd5ae}\label{class_battle_manager_a7d1ecfd1bd92eee7327d9015175fd5ae}} 
+\mbox{\hyperlink{class_battle_move}{Battle\+Move}} \mbox{[}$\,$\mbox{]} {\bfseries moves\+List}
+\item 
+\mbox{\Hypertarget{class_battle_manager_acac34e171c26d771c3a925b32f7938ce}\label{class_battle_manager_acac34e171c26d771c3a925b32f7938ce}} 
+Game\+Object {\bfseries enemy\+Attack\+Effect}
+\item 
+\mbox{\Hypertarget{class_battle_manager_aaab91eef5036e8a36d0a3f45a3422451}\label{class_battle_manager_aaab91eef5036e8a36d0a3f45a3422451}} 
+\mbox{\hyperlink{class_damage_number}{Damage\+Number}} {\bfseries the\+Damage\+Number}
+\item 
+\mbox{\Hypertarget{class_battle_manager_abf7011e2c95f5b0a0143461b50c14344}\label{class_battle_manager_abf7011e2c95f5b0a0143461b50c14344}} 
+Text \mbox{[}$\,$\mbox{]} {\bfseries player\+Name}
+\item 
+\mbox{\Hypertarget{class_battle_manager_ad305213f255d34f42ce6e566c4b77d7c}\label{class_battle_manager_ad305213f255d34f42ce6e566c4b77d7c}} 
+Game\+Object {\bfseries target\+Menu}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a53f9c10ad1e3f5f942c8ea63d0441fae}\label{class_battle_manager_a53f9c10ad1e3f5f942c8ea63d0441fae}} 
+\mbox{\hyperlink{class_battle_target_button}{Battle\+Target\+Button}} \mbox{[}$\,$\mbox{]} {\bfseries target\+Buttons}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a1076189831f1cb2185fe064023611f3d}\label{class_battle_manager_a1076189831f1cb2185fe064023611f3d}} 
+Game\+Object {\bfseries magic\+Menu}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a935268e28ad6fdc1fa7b7693cab5dcea}\label{class_battle_manager_a935268e28ad6fdc1fa7b7693cab5dcea}} 
+\mbox{\hyperlink{class_battle_magic_select}{Battle\+Magic\+Select}} \mbox{[}$\,$\mbox{]} {\bfseries magic\+Buttons}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a1bf29a6f78538bed70aef4da73d988f1}\label{class_battle_manager_a1bf29a6f78538bed70aef4da73d988f1}} 
+\mbox{\hyperlink{class_battle_notification}{Battle\+Notification}} {\bfseries battle\+Notice}
+\item 
+\mbox{\Hypertarget{class_battle_manager_acbc5a408eb37753e2ba19475aeb42db1}\label{class_battle_manager_acbc5a408eb37753e2ba19475aeb42db1}} 
+int {\bfseries chance\+To\+Flee} = 35
+\item 
+\mbox{\Hypertarget{class_battle_manager_a2a4ae107f65cfac0cbd4111e9648f481}\label{class_battle_manager_a2a4ae107f65cfac0cbd4111e9648f481}} 
+Game\+Object {\bfseries item\+Menu}
+\item 
+\mbox{\Hypertarget{class_battle_manager_aadd1cab6a140928795e35d3620e69b62}\label{class_battle_manager_aadd1cab6a140928795e35d3620e69b62}} 
+\mbox{\hyperlink{class_item_button}{Item\+Button}} \mbox{[}$\,$\mbox{]} {\bfseries item\+Buttons\+To\+Show}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a1537c3e508792123f547327f02f4abe5}\label{class_battle_manager_a1537c3e508792123f547327f02f4abe5}} 
+\mbox{\hyperlink{class_item}{Item}} {\bfseries active\+Item\+Battle}
+\item 
+\mbox{\Hypertarget{class_battle_manager_aabb7b6c830f6a065c82d62a8a3dd3b76}\label{class_battle_manager_aabb7b6c830f6a065c82d62a8a3dd3b76}} 
+Text {\bfseries item\+Name\+Battle}
+\item 
+\mbox{\Hypertarget{class_battle_manager_af3cfd24f605811364e2c26096701af01}\label{class_battle_manager_af3cfd24f605811364e2c26096701af01}} 
+string {\bfseries game\+Over\+Scene}
+\item 
+\mbox{\Hypertarget{class_battle_manager_abcb3e2b7eb5012290bb7fe7728503f2f}\label{class_battle_manager_abcb3e2b7eb5012290bb7fe7728503f2f}} 
+int {\bfseries reward\+XP}
+\item 
+\mbox{\Hypertarget{class_battle_manager_af329922166ed97693832aae68dc392e5}\label{class_battle_manager_af329922166ed97693832aae68dc392e5}} 
+string \mbox{[}$\,$\mbox{]} {\bfseries reward\+Items}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a91c88c90ac3f32e21e8b8d401b51129d}\label{class_battle_manager_a91c88c90ac3f32e21e8b8d401b51129d}} 
+bool {\bfseries cannot\+Flee}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_battle_manager_a13bd019df69b12ef974d111f888bd0b6}\label{class_battle_manager_a13bd019df69b12ef974d111f888bd0b6}} 
+static \mbox{\hyperlink{class_battle_manager}{Battle\+Manager}} {\bfseries instance}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Battle\+Manager.\+cs\end{DoxyCompactItemize}

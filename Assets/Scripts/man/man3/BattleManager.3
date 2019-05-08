@@ -1,0 +1,158 @@
+.TH "BattleManager" 3 "Sun May 5 2019" "The Great Adventure" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BattleManager
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits MonoBehaviour\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBBattleStart\fP (string[] enemiesToSpawn, bool setCannotFlee)"
+.br
+.ti -1c
+.RI "void \fBNextTurn\fP ()"
+.br
+.ti -1c
+.RI "void \fBUpdateBattle\fP ()"
+.br
+.ti -1c
+.RI "IEnumerator \fBEnemyMoveCo\fP ()"
+.br
+.ti -1c
+.RI "void \fBEnemyAttack\fP ()"
+.br
+.ti -1c
+.RI "void \fBDealDamage\fP (int target, int movePower)"
+.br
+.ti -1c
+.RI "void \fBUpdateUIStats\fP ()"
+.br
+.ti -1c
+.RI "void \fBPlayerAttack\fP (string moveName, int selectedTarget)"
+.br
+.ti -1c
+.RI "void \fBOpenTargetMenu\fP (string moveName)"
+.br
+.ti -1c
+.RI "void \fBOpenMagicMenu\fP ()"
+.br
+.ti -1c
+.RI "void \fBFlee\fP ()"
+.br
+.ti -1c
+.RI "void \fBOpenItemMenu\fP ()"
+.br
+.ti -1c
+.RI "void \fBSelectItemBattle\fP (\fBItem\fP newItem)"
+.br
+.ti -1c
+.RI "void \fBUseItemBattle\fP ()"
+.br
+.ti -1c
+.RI "IEnumerator \fBEndBattleCo\fP ()"
+.br
+.ti -1c
+.RI "IEnumerator \fBGameOverCo\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "GameObject \fBbattleScene\fP"
+.br
+.ti -1c
+.RI "Transform [] \fBplayerPositions\fP"
+.br
+.ti -1c
+.RI "Transform [] \fBenemyPositions\fP"
+.br
+.ti -1c
+.RI "\fBBattleChar\fP [] \fBplayerPrefabs\fP"
+.br
+.ti -1c
+.RI "\fBBattleChar\fP [] \fBenemyPrefabs\fP"
+.br
+.ti -1c
+.RI "List< \fBBattleChar\fP > \fBactiveBattlers\fP = new List<\fBBattleChar\fP>()"
+.br
+.ti -1c
+.RI "int \fBcurrentTurn\fP"
+.br
+.ti -1c
+.RI "bool \fBturnWaiting\fP"
+.br
+.ti -1c
+.RI "GameObject \fBuiButtonsHolder\fP"
+.br
+.ti -1c
+.RI "\fBBattleMove\fP [] \fBmovesList\fP"
+.br
+.ti -1c
+.RI "GameObject \fBenemyAttackEffect\fP"
+.br
+.ti -1c
+.RI "\fBDamageNumber\fP \fBtheDamageNumber\fP"
+.br
+.ti -1c
+.RI "Text [] \fBplayerName\fP"
+.br
+.ti -1c
+.RI "GameObject \fBtargetMenu\fP"
+.br
+.ti -1c
+.RI "\fBBattleTargetButton\fP [] \fBtargetButtons\fP"
+.br
+.ti -1c
+.RI "GameObject \fBmagicMenu\fP"
+.br
+.ti -1c
+.RI "\fBBattleMagicSelect\fP [] \fBmagicButtons\fP"
+.br
+.ti -1c
+.RI "\fBBattleNotification\fP \fBbattleNotice\fP"
+.br
+.ti -1c
+.RI "int \fBchanceToFlee\fP = 35"
+.br
+.ti -1c
+.RI "GameObject \fBitemMenu\fP"
+.br
+.ti -1c
+.RI "\fBItemButton\fP [] \fBitemButtonsToShow\fP"
+.br
+.ti -1c
+.RI "\fBItem\fP \fBactiveItemBattle\fP"
+.br
+.ti -1c
+.RI "Text \fBitemNameBattle\fP"
+.br
+.ti -1c
+.RI "string \fBgameOverScene\fP"
+.br
+.ti -1c
+.RI "int \fBrewardXP\fP"
+.br
+.ti -1c
+.RI "string [] \fBrewardItems\fP"
+.br
+.ti -1c
+.RI "bool \fBcannotFlee\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static \fBBattleManager\fP \fBinstance\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for The Great Adventure from the source code\&.
