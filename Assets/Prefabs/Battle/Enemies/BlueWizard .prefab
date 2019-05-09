@@ -101,7 +101,7 @@ MonoBehaviour:
   maxHP: 250
   currentMP: 0
   maxMP: 0
-  strength: 5
+  strength: 1
   defence: 5
   wpnPower: 5
   armrPower: 5
