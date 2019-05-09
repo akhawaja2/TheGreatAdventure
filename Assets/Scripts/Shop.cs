@@ -256,9 +256,10 @@ public class Shop : MonoBehaviour
             4/30/2019
     */
     /**/
-    public void SelectBuyItem(Item selectedItem)
+    public void SelectBuyItem(Item sellItem)
     {
-        Debug.Log(selectedItem.value);
+        selectedItem = sellItem;
+        Debug.Log(selectedItem.itemName + "Costs " + selectedItem.value);
         buyItemName.text = selectedItem.itemName;
         buyItemDescription.text = selectedItem.description;
         buyItemValue.text = "Value: " + selectedItem.value + "g";
@@ -310,6 +311,7 @@ public class Shop : MonoBehaviour
     /**/
     public void BuyItem()
     {
+        Debug.Log("Attempting to buy " + selectedItem.itemName + " For " + selectedItem.value);
         if (selectedItem != null)
         {
             if (GameManager.instance.currentGold >= selectedItem.value)
