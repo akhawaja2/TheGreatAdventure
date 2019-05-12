@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     //Name of scene to load in
     public string loadGameScene;
     /**/    
-    /*
+    /*!
     MainMenu.Cs - Start()
     NAME
             void Start()
@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update(){ }
     /**/    
-    /*
+    /*!
     MainMenu.Cs - Continue()
     NAME
             void Continue()
@@ -66,7 +66,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(loadGameScene);
     }
     /**/    
-    /*
+    /*!
     MainMenu.Cs - NewGame()
     NAME
             void NewGame()
@@ -88,7 +88,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(newGameScene);
     }
     /**/    
-    /*
+    /*!
     MainMenu.Cs - Exit()
     NAME
             void Exit()

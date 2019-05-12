@@ -20,8 +20,8 @@ public class AreaExit : MonoBehaviour
     private bool shouldLoadAfterFade;
     // Start is called before the first frame update
 
-    /**/
-    /*
+    /*!!*/
+    /*!!
     AreaExit.cs --- Start()
     NAME
             Start() - Function is ran whenever I have exited one scene and am entering another
@@ -37,7 +37,7 @@ public class AreaExit : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!!*/
     // Start is called before the first frame update
     void Start()
     {
@@ -47,8 +47,8 @@ public class AreaExit : MonoBehaviour
 
 
 
-    /**/
-    /*
+    /*!!*/
+    /*!!
     AreaExit.cs --- Update()
     NAME
             Update() - In Unity, Update is called once per frame
@@ -65,7 +65,7 @@ public class AreaExit : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!!*/
     
     void Update()
     {
@@ -82,8 +82,8 @@ public class AreaExit : MonoBehaviour
         }
     }
 
-    /**/
-    /*
+    /*!!*/
+    /*!!
     AreaExit.cs --- OnTriggerEnter2D()
     NAME
             OnTriggerEnter2D()
@@ -101,7 +101,7 @@ public class AreaExit : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!!*/
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

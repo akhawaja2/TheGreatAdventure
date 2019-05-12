@@ -45,7 +45,7 @@ public class GameMenu : MonoBehaviour
 
     public string mainMenuName;
     /**/    
-    /*
+    /*!
     GameMenu.Cs - Start()
     NAME
             void Start()
@@ -67,7 +67,7 @@ public class GameMenu : MonoBehaviour
         instance = this;
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - Update()
     NAME
             void Update()
@@ -108,7 +108,7 @@ public class GameMenu : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - UpdateMainStats()
     NAME
             void UpdateMainStats()
@@ -156,7 +156,7 @@ public class GameMenu : MonoBehaviour
         goldText.text = GameManager.instance.currentGold.ToString() + "g";
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - ToggleWindow()
     NAME
             void ToggleWindow(int windowNumber)
@@ -193,7 +193,7 @@ public class GameMenu : MonoBehaviour
         itemCharChoiceMenu.SetActive(false);
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - CloseMenu()
     NAME
             void CloseMenu()
@@ -224,7 +224,7 @@ public class GameMenu : MonoBehaviour
         itemCharChoiceMenu.SetActive(false);
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - OpenStatus()
     NAME
             public void OpenStatus()
@@ -254,7 +254,7 @@ public class GameMenu : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - StatusChar()
     NAME
             public void StatusChar(int selected)
@@ -298,7 +298,7 @@ public class GameMenu : MonoBehaviour
     }
 
     /**/    
-    /*
+    /*!
     GameMenu.Cs - ShowItems()
     NAME
             public void ShowItems()
@@ -340,7 +340,7 @@ public class GameMenu : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - SelectItem()
     NAME
             public void SelectItem(Item newItem)
@@ -376,7 +376,7 @@ public class GameMenu : MonoBehaviour
         itemDescription.text = activeItem.description;
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - DiscardItem()
     NAME
             public void DiscardItem()
@@ -402,7 +402,7 @@ public class GameMenu : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - OpenItemCharChoice()
     NAME
             public void OpenItemCharChoice()
@@ -434,7 +434,7 @@ public class GameMenu : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - CloseItemCharChoice()
     NAME
             public void CloseItemCharChoice()
@@ -457,7 +457,7 @@ public class GameMenu : MonoBehaviour
         BattleManager.instance.itemMenu.SetActive(false);
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - UseItem()
     NAME
             public void UseItem(int selectChar)
@@ -480,7 +480,7 @@ public class GameMenu : MonoBehaviour
         CloseItemCharChoice();
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - SaveGame()
     NAME
             public void SaveGame()
@@ -503,7 +503,7 @@ public class GameMenu : MonoBehaviour
         QuestManager.instance.SaveQuestData();
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - PlayButtonSound()
     NAME
             public void PlayButtonSound()
@@ -525,7 +525,7 @@ public class GameMenu : MonoBehaviour
         AudioManager.instance.PlaySFX(4);
     }
     /**/    
-    /*
+    /*!
     GameMenu.Cs - QuitGame()
     NAME
             public void QuitGame()

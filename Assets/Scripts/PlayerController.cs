@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove = true;
     /**/    
-    /*
+    /*!
     PlayerController.Cs - Start()
     NAME
             void Start()
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     /**/    
-    /*
+    /*!
     PlayerController.Cs - Update()
     NAME
             public void Update()
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /**/    
-    /*
+    /*!
     PlayerController.Cs - SetBounds()
     NAME
             public void SetBounds(Vector3 botLeft, Vector3 topRight)

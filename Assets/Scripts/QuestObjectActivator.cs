@@ -15,7 +15,7 @@ public class QuestObjectActivator : MonoBehaviour
     void Start() {}
 
     /**/        
-    /*
+    /*!
     QuestObjectActivator.Cs - Update()
     NAME
             void Update()
@@ -41,7 +41,7 @@ public class QuestObjectActivator : MonoBehaviour
         }
     }
     /**/        
-    /*
+    /*!
     QuestObjectActivator.Cs - CheckCompletion()
     NAME
             public void CheckCompletion()

@@ -16,7 +16,7 @@ public class QuestMarker : MonoBehaviour
     {  }
 
     /**/        
-    /*
+    /*!
     QuestMarker.Cs - Update()
     NAME
             void Update()
@@ -44,7 +44,7 @@ public class QuestMarker : MonoBehaviour
     }
 
     /**/        
-    /*
+    /*!
     QuestMarker.Cs - MarkQuest()
     NAME
             void MarkQuest()
@@ -76,7 +76,7 @@ public class QuestMarker : MonoBehaviour
         gameObject.SetActive(!deactivateOnMarking);
     }
     /**/        
-    /*
+    /*!
     QuestMarker.Cs - OnTriggerEnter2D()
     NAME
             private void OnTriggerEnter2D(Collider2D other)
@@ -114,7 +114,7 @@ public class QuestMarker : MonoBehaviour
     }
 
     /**/        
-    /*
+    /*!
     QuestMarker.Cs - OnTriggerExit2D()
     NAME
             private void OnTriggerExit2D(Collider2D other)

@@ -11,7 +11,7 @@ public class ItemPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start(){}
     /**/    
-    /*
+    /*!
     ItemPickup.Cs - Update()
     NAME
             public void ItemPickup()
@@ -43,7 +43,7 @@ public class ItemPickup : MonoBehaviour
 
     }
     /**/    
-    /*
+    /*!
     ItemPickup.Cs - OnTriggerEnter2D()
     NAME
           private void OnTriggerEnter2D(Collider2D other)
@@ -69,7 +69,7 @@ public class ItemPickup : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     ItemPickup.Cs - OnTriggerExit2D()
     NAME
           private void OnTriggerExit2D(Collider2D other)

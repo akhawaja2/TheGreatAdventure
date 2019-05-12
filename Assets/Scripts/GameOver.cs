@@ -22,7 +22,7 @@ public class GameOver : MonoBehaviour
     
     void Update(){}
     /**/    
-    /*
+    /*!
     GameOver.Cs - QuitToMain()
     NAME
             public void QuitToMain()
@@ -45,11 +45,11 @@ public class GameOver : MonoBehaviour
         Destroy(GameMenu.instance.gameObject);
         Destroy(AudioManager.instance.gameObject);
 
-        //Destroy(BattleManager.instance.gameObject);
+        Destroy(BattleManager.instance.gameObject);
         SceneManager.LoadScene(mainMenuScene);
     }
     /**/    
-    /*
+    /*!
     GameOver.Cs - LoadLastSave()
     NAME
             public void LoadLastSave()
@@ -71,7 +71,7 @@ public class GameOver : MonoBehaviour
         Destroy(GameManager.instance.gameObject);
         Destroy(PlayerController.instance.gameObject);
         Destroy(GameMenu.instance.gameObject);
-        //Destroy(BattleManager.instance.gameObject);
+        Destroy(BattleManager.instance.gameObject);
 
 
         SceneManager.LoadScene(loadGameScene);

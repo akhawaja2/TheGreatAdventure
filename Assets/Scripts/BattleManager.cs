@@ -78,8 +78,8 @@ public class BattleManager : MonoBehaviour
     //(Who can run away froma dragon)?
     public bool cannotFlee;
 
-    /**/
-    /*
+    /*!*/
+    /*!
     BattleManager.cs --- Start()
     NAME
             Start() 
@@ -96,7 +96,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     
     void Start()
     {
@@ -104,8 +104,8 @@ public class BattleManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    /**/
-    /*
+    /*!*/
+    /*!
     BattleManager.cs --- Update()
     NAME
             Update() 
@@ -123,7 +123,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
 
     void Update()
     {
@@ -157,8 +157,8 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    /**/
-    /*
+    /*!*/
+    /*!
     BattleManager.cs --- BattleStart()
     NAME
             public void BattleStart(string[] enemiesToSpawn, bool setCannotFlee)
@@ -181,7 +181,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
   
     public void BattleStart(string[] enemiesToSpawn, bool setCannotFlee)
     {
@@ -241,8 +241,8 @@ public class BattleManager : MonoBehaviour
         currentTurn = Random.Range(0, activeBattlers.Count);
         UpdateUIStats();
     }
-/**/
-    /*
+/*!*/
+    /*!
     BattleManager.cs --- NextTurn()
     NAME
             NextTurn() 
@@ -259,7 +259,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void NextTurn()
     {
         currentTurn++;
@@ -272,8 +272,8 @@ public class BattleManager : MonoBehaviour
         UpdateBattle();
         UpdateUIStats();
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- UpdateBattle()
     NAME
             public void UpdateBattle()
@@ -293,7 +293,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void UpdateBattle()
     {
         //true by default because we check if any player/enemy has health then set it to false
@@ -352,7 +352,7 @@ public class BattleManager : MonoBehaviour
                 {
                     StartCoroutine(GameOverCo());
                 }
-                /*battleScene.SetActive(false);
+                /*!battleScene.SetActive(false);
                 GameManager.instance.battleActive = false;
                 battleActive = false;*/
             }
@@ -371,8 +371,8 @@ public class BattleManager : MonoBehaviour
         
     }
 
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- EnemyMoveCo()
     NAME
             public IEnumerator EnemyMoveCo()
@@ -394,7 +394,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     
     public IEnumerator EnemyMoveCo()
     {
@@ -405,8 +405,8 @@ public class BattleManager : MonoBehaviour
         NextTurn();
     }
 
-     /**/    
-    /*
+     /*!*/    
+    /*!
     BattleManager.cs --- EnemyAttack()
     NAME
             public void EnemyAttack()
@@ -424,7 +424,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void EnemyAttack()
     {
         //pick player to attack - loop through active battlers list and
@@ -458,8 +458,8 @@ public class BattleManager : MonoBehaviour
         Instantiate(enemyAttackEffect, activeBattlers[currentTurn].transform.position, activeBattlers[currentTurn].transform.rotation);
         DealDamage(selectedTarget, movePower);
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- DealDamage()
     NAME
            public void DealDamage(int target, int movePower)
@@ -476,7 +476,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void DealDamage(int target, int movePower)
     {
         //The attackers power
@@ -500,8 +500,8 @@ public class BattleManager : MonoBehaviour
         Instantiate(theDamageNumber, activeBattlers[target].transform.position, activeBattlers[target].transform.rotation).SetDamage(damageToGive);
         UpdateUIStats();
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- UpdateUIStats()
     NAME
            public void UpdateUIStats()
@@ -517,7 +517,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void UpdateUIStats()
     {
         for (int i = 0; i < playerName.Length; i++)
@@ -546,8 +546,8 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- PlayerAttack()
     NAME
           public void PlayerAttack(string moveName  , int selectedTarget)
@@ -564,7 +564,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void PlayerAttack(string moveName  , int selectedTarget)
     {
         int movePower = 0;
@@ -589,8 +589,8 @@ public class BattleManager : MonoBehaviour
         NextTurn();
         
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- OpenTargetMenu()
     NAME
           public void OpenTargetMenu(string moveName)
@@ -606,7 +606,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void OpenTargetMenu(string moveName)
     {
         targetMenu.SetActive(true);
@@ -639,8 +639,8 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- OpenMagicMenu()
     NAME
           public void OpenMagicMenu()
@@ -657,7 +657,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void OpenMagicMenu()
     {
         magicMenu.SetActive(true);
@@ -688,8 +688,8 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- Flee()
     NAME
           public void Flee()
@@ -708,7 +708,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void Flee()
     {
         if (cannotFlee)
@@ -737,8 +737,8 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
-   /**/    
-    /*
+   /*!*/    
+    /*!
     BattleManager.cs --- OpenItemMenu()
     NAME
           public void OpenItemMenu()
@@ -754,7 +754,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void OpenItemMenu()
     {
         itemMenu.SetActive(true);
@@ -783,8 +783,8 @@ public class BattleManager : MonoBehaviour
 
     }
 
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- SelectItemBattle()
     NAME
           public void SelectItemBattle(Item newItem)
@@ -799,7 +799,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void SelectItemBattle(Item newItem)
     {
         activeItemBattle = newItem;
@@ -819,8 +819,8 @@ public class BattleManager : MonoBehaviour
         itemNameBattle.text = activeItemBattle.itemName;
         itemDescriptionBattle.text = activeItemBattle.description;
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- UseItemBattle()
     NAME
           public void UseItemBattle()
@@ -836,15 +836,15 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void UseItemBattle()
     {
         activeItemBattle.UseInBattle(currentTurn);
         itemMenu.SetActive(false);
         NextTurn();
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleManager.cs --- EndBattleCo()
     NAME
           public IEnumerator EndBattleCo()
@@ -865,7 +865,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public IEnumerator EndBattleCo()
     {
         battleActive = false;
@@ -921,8 +921,8 @@ public class BattleManager : MonoBehaviour
         AudioManager.instance.PlayBGM(FindObjectOfType<CameraController>().musicToPlay);
     }
 
-/**/    
-    /*
+/*!*/    
+    /*!
     BattleManager.cs --- GameOverCo()
     NAME
           public IEnumerator GameOverCo()
@@ -938,7 +938,7 @@ public class BattleManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public IEnumerator GameOverCo()
     {
         battleActive = false;

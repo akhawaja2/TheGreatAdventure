@@ -34,7 +34,7 @@ public class DialogManager : MonoBehaviour
         instance = this;
     }
     /**/    
-    /*
+    /*!
     DialogManager.Cs - Update()
     NAME
            void  Update()
@@ -98,7 +98,7 @@ public class DialogManager : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     DialogManager.Cs - ShowDialog()
     NAME
            public void ShowDialog(string[] newLines, bool isPerson)
@@ -134,7 +134,7 @@ public class DialogManager : MonoBehaviour
         GameManager.instance.dialogActive= true;
     }
     /**/    
-    /*
+    /*!
     DialogManager.Cs - CheckIfName()
     NAME
            public void CheckIfName( )
@@ -161,7 +161,7 @@ public class DialogManager : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     DialogManager.Cs - ShouldActivateQuestAtEnd()
     NAME
            public void ShouldActivateQuestAtEnd(string questName, bool markComplete)

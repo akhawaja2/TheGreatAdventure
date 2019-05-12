@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
     public int musicToPlay;
     private bool musicStarted;
     /**/    
-    /*
+    /*!
     CameraController.Cs 
     NAME
           void Start()
@@ -59,7 +59,7 @@ public class CameraController : MonoBehaviour
         PlayerController.instance.SetBounds(theMap.localBounds.min, theMap.localBounds.max);
     }
     /**/    
-    /*
+    /*!
     CameraController.Cs 
     NAME
           void LateUpdate()

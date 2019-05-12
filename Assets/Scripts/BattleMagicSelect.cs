@@ -15,7 +15,7 @@ public class BattleMagicSelect : MonoBehaviour
     void Update(){}
 
     /**/
-    /*
+    /*!
     BattleMagicSelect.cs --- Press()
     NAME
             Press() 

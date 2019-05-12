@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
     //Making it an instance - only want 1
     public static QuestManager instance;
     /**/    
-    /*
+    /*!
     QuestManager.Cs - Start()
     NAME
             void Start()
@@ -35,7 +35,7 @@ public class QuestManager : MonoBehaviour
         questMarkersComplete = new bool[questMarkerNames.Length];
     }
     /**/    
-    /*
+    /*!
     QuestManager.Cs - Update()
     NAME
             void Update()
@@ -73,7 +73,7 @@ public class QuestManager : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     QuestManager.Cs - GetQuestNumber()
     NAME
             void GetQuestNumber(string questToFind)
@@ -104,7 +104,7 @@ public class QuestManager : MonoBehaviour
     }
 
     /**/    
-    /*
+    /*!
     QuestManager.Cs - CheckIfComplete()
     NAME
             public bool CheckIfComplete(string questToCheck)
@@ -130,7 +130,7 @@ public class QuestManager : MonoBehaviour
         return false;
     }
     /**/        
-    /*
+    /*!
     QuestManager.Cs - MarkQuestComplete()
     NAME
             public void MarkQuestComplete(string questToMark)
@@ -154,7 +154,7 @@ public class QuestManager : MonoBehaviour
         UpdateLocalQuestObjects();
     }
     /**/        
-    /*
+    /*!
     QuestManager.Cs - MarkQuestIncomplete()
     NAME
              public void MarkQuestIncomplete(string questToMark)
@@ -179,7 +179,7 @@ public class QuestManager : MonoBehaviour
     }
 
     /**/        
-    /*
+    /*!
     QuestManager.Cs - UpdateLocalQuestObjects()
     NAME
              public void UpdateLocalQuestObjects()
@@ -210,7 +210,7 @@ public class QuestManager : MonoBehaviour
         }
     }
     /**/        
-    /*
+    /*!
     QuestManager.Cs - SaveQuestData()
     NAME
             public void SaveQuestData()
@@ -242,7 +242,7 @@ public class QuestManager : MonoBehaviour
         }
     }
     /**/        
-    /*
+    /*!
     QuestManager.Cs - LoadQuestData()
     NAME
             public void LoadQuestData()

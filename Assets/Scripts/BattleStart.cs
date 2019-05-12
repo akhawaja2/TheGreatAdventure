@@ -34,7 +34,7 @@ public class BattleStart : MonoBehaviour
     public string questToComplete;
 
     /**/    
-    /*
+    /*!
     BattleStart.Cs - CloseRewardScreen()
     NAME
           void Start()
@@ -56,7 +56,7 @@ public class BattleStart : MonoBehaviour
     }
 
     /**/    
-    /*
+    /*!
     BattleStart.Cs - Update()
     NAME
           void Update()
@@ -92,7 +92,7 @@ public class BattleStart : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     BattleStart.Cs - OnTriggerEnter2D()
     NAME
           private void OnTriggerEnter2D(Collider2D other)
@@ -129,7 +129,7 @@ public class BattleStart : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     BattleStart.Cs - OnTriggerExit2D()
     NAME
           private void OnTriggerExit2D(Collider2D other)
@@ -165,7 +165,7 @@ public class BattleStart : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     BattleStart.Cs - StartBattleCo()
     NAME
           public IEnumerator StartBattleCo()

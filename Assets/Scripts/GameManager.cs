@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public int currentGold;
      /**/    
-    /*
+    /*!
     GameManager.Cs - Start()
     NAME
            void  Start()
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     }
 
     /**/    
-    /*
+    /*!
     GameManager.Cs - Update()
     NAME
            void  Update()
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     }
 
     /**/    
-    /*
+    /*!
     GameManager.Cs - GetItemDetails()
     NAME
            public Item GetItemDetails(string itemToGet)
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
         return null;
     }
     /**/    
-    /*
+    /*!
     GameManager.Cs - SortItems()
     NAME
            public Item SortItems()
@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     GameManager.Cs - AddItem()
     NAME
            public void AddItem(string itemToAdd)
@@ -242,7 +242,7 @@ public class GameManager : MonoBehaviour
         GameMenu.instance.ShowItems();
     }
     /**/    
-    /*
+    /*!
     GameManager.Cs - RemoveItem()
     NAME
            public void RemoveItem(string itemToRemove)
@@ -293,7 +293,7 @@ public class GameManager : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     GameManager.Cs - SaveData()
     NAME
            public void SaveData()
@@ -354,7 +354,7 @@ public class GameManager : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     GameManager.Cs - LoadData()
     NAME
            public void LoadData()
@@ -375,6 +375,7 @@ public class GameManager : MonoBehaviour
     /**/
     public void LoadData()
     {
+
         PlayerController.instance.transform.position = new Vector3(PlayerPrefs.GetFloat("Player_Position_x"), 
             PlayerPrefs.GetFloat("Player_Position_y"), 
             PlayerPrefs.GetFloat("Player_Position_z"));

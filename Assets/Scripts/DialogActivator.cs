@@ -22,7 +22,7 @@ public class DialogActivator : MonoBehaviour
     // Start is called before the first frame update
     void Start() {}
     /**/    
-    /*
+    /*!
     DialogActivator.Cs - Update()
     NAME
            public void Update()
@@ -50,7 +50,7 @@ public class DialogActivator : MonoBehaviour
         }
     }
      /**/    
-    /*
+    /*!
     DialogActivator.Cs - OnTriggerEnter2D()
     NAME
            void OnTriggerEnter2D(Collider2D other)
@@ -77,7 +77,7 @@ public class DialogActivator : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     DialogActivator.Cs - OnTriggerExit2D()
     NAME
            void OnTriggerExit2D(Collider2D other)

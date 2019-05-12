@@ -25195,13 +25195,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lines:
-  - n-Girl
-  - Please help
-  - n-Player
-  - What's wrong?
-  - n-Girl
-  - Everything
-  - And the Dragon!
+  - n-Roth
+  - Wanna see a magic trick?
+  - n-Tom
+  - No.. But I think you're gonna show me anyway.
+  - n-Roth
+  - Okay look. After I'm done talking to you check out the chest! Go loot it for some
+    extra surprises!
+  - Maybe the chest will move...?
   isPerson: 1
   shouldActivateQuest: 1
   questToMark: Test the Quest

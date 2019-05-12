@@ -24,7 +24,7 @@ public class ItemButton : MonoBehaviour
     // Update is called once per frame
     void Update(){}
     /**/    
-    /*
+    /*!
     ItemButton.Cs - Press()
     NAME
             public void Press()

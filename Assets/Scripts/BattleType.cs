@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /**/    
-    /*
+    /*!
     BattleType.Cs 
     NAME
           public class BattleType 

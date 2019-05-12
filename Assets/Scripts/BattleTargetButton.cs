@@ -23,7 +23,7 @@ public class BattleTargetButton : MonoBehaviour
         
     }
  /**/    
-    /*
+    /*!
     BattleTargetButton.Cs - Press()
     NAME
           void Press()

@@ -19,7 +19,7 @@ public class UIFade : MonoBehaviour
     public Image fadeScreen;
 
     /**/        
-    /*
+    /*!
     UIFade.Cs - Start()
     NAME
             public void Start( )
@@ -44,7 +44,7 @@ public class UIFade : MonoBehaviour
     }
 
     /**/        
-    /*
+    /*!
     UIFade.Cs - Update()
     NAME
             public void Update( )
@@ -75,7 +75,7 @@ public class UIFade : MonoBehaviour
         }
     }
     /**/        
-    /*
+    /*!
     UIFade.Cs - FadeToBlack()
     NAME
             public void FadeToBlack( )
@@ -97,7 +97,7 @@ public class UIFade : MonoBehaviour
         shouldFadeFromBlack = false;
     }
     /**/        
-    /*
+    /*!
     UIFade.Cs - FadeFromBlack()
     NAME
             public void FadeFromBlack( )

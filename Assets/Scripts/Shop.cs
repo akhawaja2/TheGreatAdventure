@@ -25,7 +25,7 @@ public class Shop : MonoBehaviour
     public Text buyItemName, buyItemDescription, buyItemValue;
     public Text sellItemName, sellItemDescription, sellItemValue;
     /**/        
-    /*
+    /*!
     Shop.Cs - Start()
     NAME
             void Start()
@@ -47,7 +47,7 @@ public class Shop : MonoBehaviour
         instance = this;
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - Update()
     NAME
             void Update()
@@ -73,7 +73,7 @@ public class Shop : MonoBehaviour
         }
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - OpenShop()
     NAME
             public void OpenShop()
@@ -100,7 +100,7 @@ public class Shop : MonoBehaviour
         goldText.text = GameManager.instance.currentGold.ToString() + "g";
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - CloseShop()
     NAME
             public void CloseShop()
@@ -123,7 +123,7 @@ public class Shop : MonoBehaviour
         GameManager.instance.shopActive = false;
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - OpenBuyMenu()
     NAME
             public void OpenBuyMenu()
@@ -168,7 +168,7 @@ public class Shop : MonoBehaviour
         }
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - OpenSellMenu()
     NAME
             public void OpenSellMenu()
@@ -198,7 +198,7 @@ public class Shop : MonoBehaviour
         ShowSellItems();
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - ShowSellItems()
     NAME
             private void ShowSellItems()
@@ -238,7 +238,7 @@ public class Shop : MonoBehaviour
         }
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - SelectBuyItem()
     NAME
             public void SelectBuyItem(Item selectedItem)
@@ -265,7 +265,7 @@ public class Shop : MonoBehaviour
         buyItemValue.text = "Value: " + selectedItem.value + "g";
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - SelectSellItem()
     NAME
             public void SelectSellItem(Item selectedItem)
@@ -291,7 +291,7 @@ public class Shop : MonoBehaviour
         sellItemValue.text = "Value: " + Mathf.FloorToInt(selectedItem.value * .5f).ToString() + "g";
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - BuyItem()
     NAME
             public void BuyItem()
@@ -323,7 +323,7 @@ public class Shop : MonoBehaviour
         goldText.text = GameManager.instance.currentGold.ToString() + "g";
     }
     /**/        
-    /*
+    /*!
     Shop.Cs - SellItem()
     NAME
             public void SellItem()

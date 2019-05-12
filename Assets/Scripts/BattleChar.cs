@@ -24,8 +24,8 @@ public class BattleChar : MonoBehaviour
     // Start is called before the first frame update
     void Start(){}
 
-    /**/
-    /*
+    /*!*/
+    /*!
     BattleChar.cs --- Update()
     NAME
             Update() - In Unity,   Update is called once per frame
@@ -41,7 +41,7 @@ public class BattleChar : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     void Update()
     {
         if (shouldFade)
@@ -57,8 +57,8 @@ public class BattleChar : MonoBehaviour
         }
     }
 
-    /**/
-    /*
+    /*!*/
+    /*!
     BattleChar.cs --- EnemyFade()
     NAME
             EnemyFade() - Setting our shouldFade to true
@@ -73,7 +73,7 @@ public class BattleChar : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void EnemyFade()
     {
         shouldFade = true;

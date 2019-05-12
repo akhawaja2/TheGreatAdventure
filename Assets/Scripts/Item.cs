@@ -41,7 +41,7 @@ public class Item : MonoBehaviour
         
     }
     /**/    
-    /*
+    /*!
     Item.Cs - Use()
     NAME
             public void Use(int charToUseOn)
@@ -117,7 +117,7 @@ public class Item : MonoBehaviour
         GameManager.instance.RemoveItem(itemName);
     }
      /**/    
-    /*
+    /*!
     Item.Cs - UseInBattle()
     NAME
             public void UseInBattle(int charToUseOn)

@@ -31,7 +31,7 @@ public class BattleReward : MonoBehaviour
     }
 
     /**/    
-    /*
+    /*!
     BattleReward.Cs - Update()
     NAME
           public void Update()
@@ -56,7 +56,7 @@ public class BattleReward : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     BattleReward.Cs - OpenRewardsScreen()
     NAME
           public void OpenRewardsScreen(int xp, string[] rewards)
@@ -95,7 +95,7 @@ public class BattleReward : MonoBehaviour
         rewardScreen.SetActive(true);
     }
     /**/    
-    /*
+    /*!
     BattleReward.Cs - CloseRewardScreen()
     NAME
           public void CloseRewardScreen()

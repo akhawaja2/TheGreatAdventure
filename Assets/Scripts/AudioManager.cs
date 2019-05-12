@@ -11,8 +11,8 @@ public class AudioManager : MonoBehaviour
     //Making an instance so there will only be 1 audiomanager
     public static AudioManager instance;
 
-    /**/
-    /*
+    /*!!!*/
+    /*!!!
     AudioManager.cs --- Start()
     NAME
             Start() - In Unity,  Start is called before the first frame update
@@ -28,15 +28,15 @@ public class AudioManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!!!*/
     void Start()
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
 
-    /**/
-    /*
+    /*!!!*/
+    /*!!!
     AudioManager.cs --- Update()
     NAME
             Update() - In Unity,   Update is called once per frame
@@ -51,7 +51,7 @@ public class AudioManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!!!*/
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
@@ -60,8 +60,8 @@ public class AudioManager : MonoBehaviour
             PlayBGM(3);
         }
     }
-    /**/
-    /*
+    /*!!!*/
+    /*!!!
     AudioManager.cs --- PlaySFX()
     NAME
             PlaySFX(int soundToPlay)
@@ -77,7 +77,7 @@ public class AudioManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!!!*/
     public void PlaySFX(int soundToPlay)
     {
         if (soundToPlay < sfx.Length)
@@ -85,8 +85,8 @@ public class AudioManager : MonoBehaviour
             sfx[soundToPlay].Play();
         }
     }
-    /**/
-    /*
+    /*!!!*/
+    /*!!!
     AudioManager.cs --- PlayBGM()
     NAME
             PlayBGM(int musicToPlay)
@@ -105,7 +105,7 @@ public class AudioManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!!!*/
     public void PlayBGM(int musicToPlay)
     {
  
@@ -119,8 +119,8 @@ public class AudioManager : MonoBehaviour
         }
 
     }
-    /**/
-    /*
+    /*!*/
+    /*!
     AudioManager.cs --- StopMusic()
     NAME
             StopMusic()
@@ -135,7 +135,7 @@ public class AudioManager : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void StopMusic()
     {
         for (int i = 0; i < bgm.Length; i++)

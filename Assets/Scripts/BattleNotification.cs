@@ -14,8 +14,8 @@ public class BattleNotification : MonoBehaviour
     // Start is called before the first frame update
     void Start() {}
 
-    /**/    
-    /*
+    /*!*/    
+    /*!
     BattleNotification.cs - Update();
     NAME
           void Update()
@@ -32,7 +32,7 @@ public class BattleNotification : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     
     void Update()
     {
@@ -45,8 +45,8 @@ public class BattleNotification : MonoBehaviour
             }
         }
     }
-    /**/    
-    /*
+    /*!*/    
+    /*!
     Battlenotification.Cs - Activate()
     NAME
           public void Activate()
@@ -63,7 +63,7 @@ public class BattleNotification : MonoBehaviour
     DATE
             4/30/2019
     */
-    /**/
+    /*!*/
     public void Activate()
     {
         gameObject.SetActive(true);

@@ -17,7 +17,7 @@ public class DamageNumber : MonoBehaviour
     void Start(){}
 
     /**/    
-    /*
+    /*!
     DamageNumber.Cs - Update()
     NAME
            void Update()
@@ -40,7 +40,7 @@ public class DamageNumber : MonoBehaviour
         transform.position += new Vector3(0f, moveSpeed * Time.deltaTime, 0f);
     }
      /**/    
-    /*
+    /*!
     DamageNumber.Cs - SetDamage()
     NAME
            public void SetDamage(int damageAmount)

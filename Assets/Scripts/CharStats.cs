@@ -31,7 +31,7 @@ public class CharStats : MonoBehaviour
     public Sprite charImage;
     
     /**/    
-    /*
+    /*!
     CharStats.Cs 
     NAME
           void Start()
@@ -61,7 +61,7 @@ public class CharStats : MonoBehaviour
     }
 
     /**/    
-    /*
+    /*!
     CharStats.Cs 
     NAME
           void Update()
@@ -87,7 +87,7 @@ public class CharStats : MonoBehaviour
         }
     }
     /**/    
-    /*
+    /*!
     CharStats.Cs - AddExp()
     NAME
            public void AddExp(int expToAdd)

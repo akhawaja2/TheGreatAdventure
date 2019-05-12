@@ -16,7 +16,7 @@ public class EssentialsLoader : MonoBehaviour
     public GameObject battleMan;
 
     /**/    
-    /*
+    /*!
     EssentialsLoader.Cs - Start()
     NAME
            void  Start()

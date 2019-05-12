@@ -10,7 +10,7 @@ public class LoadingScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()  { }
     /**/    
-    /*
+    /*!
     LoadingScene.Cs - Update()
     NAME
             void Update()
